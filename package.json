@@ -1,0 +1,18 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Monorepo para Landing Page e Blog Docusaurus",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "build:landing": "echo 'Landing Page build concluído (estático)'",
+    "build:blog": "yarn workspace blog build",
+    "build:all": "yarn build:landing && yarn build:blog"
+  },
+  "keywords": [],
+  "repository": "git@github.com:joao1barbosa/portfolio.git",
+  "author": "joao1barbosa <joao1barbosa@hotmail.com>",
+  "license": "ISC"
+}
