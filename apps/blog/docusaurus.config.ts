@@ -17,9 +17,6 @@ const config: Config = {
   projectName: 'joao1barbosa.github.io',
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -31,9 +28,13 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          path: 'notebook',
+          routeBasePath: 'notebook',
         },
         blog: {
           showReadingTime: true,
+          path: 'thoughts',
+          routeBasePath: 'thoughts',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -52,12 +53,14 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
+          sidebarId: 'notebookSidebar',
+          position: 'right',
+          label: 'Notebook',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        
+        {
+          to: '/thoughts', 
+          label: 'Thoughts',
+          position: 'right'},
         {
           href: 'https://joao1barbosa.github.io/',
           label: 'Portfolio',
