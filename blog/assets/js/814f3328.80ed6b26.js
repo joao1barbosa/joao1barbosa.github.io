@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkblog=globalThis.webpackChunkblog||[]).push([[472],{5513:t=>{t.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Test Thought Post","permalink":"/blog/thoughts/test-thought-post","unlisted":false,"date":"2025-10-29T00:00:00.000Z"}]}')}}]);

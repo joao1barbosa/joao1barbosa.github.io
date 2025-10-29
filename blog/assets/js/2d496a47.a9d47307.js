@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkblog=globalThis.webpackChunkblog||[]).push([[876],{2562:l=>{l.exports=JSON.parse('{"tags":[{"label":"hello","permalink":"/blog/thoughts/tags/hello","count":1},{"label":"thought","permalink":"/blog/thoughts/tags/thought","count":1}]}')}}]);
