@@ -1,13 +1,11 @@
 ---
-slug: long-blog-post
-title: Long Blog Post
-authors: yangshun
-tags: [hello, docusaurus]
+slug: test-thought-post
+title: Test Thought Post
+authors: [joao1barbosa]
+tags: [hello, thought]
 ---
 
-This is the summary of a very long blog post,
-
-Use a `<!--` `truncate` `-->` comment to limit blog post size in the list view.
+Only a test post
 
 <!-- truncate -->
 
