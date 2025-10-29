@@ -7,12 +7,12 @@ const config: Config = {
   title: 'Meu Blog Dev',
   tagline: 'O que estou estudando e construindo',
   favicon: 'img/favicon.ico',
-
+  url: 'https://joao1barbosa.github.io',
+  baseUrl: '/blog/',
+  
   future: {
     v4: true,
   },
-  url: 'https://joao1barbosa.github.io',
-  baseUrl: '/blog/',
   organizationName: 'joao1barbosa', 
   projectName: 'portfolio',
   onBrokenLinks: 'throw',

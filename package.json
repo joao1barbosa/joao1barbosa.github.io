@@ -7,6 +7,7 @@
     "apps/*"
   ],
   "scripts": {
+    "start:blog": "yarn workspace blog start",
     "build:landing": "echo 'Landing Page build concluído (estático)'",
     "build:blog": "yarn workspace blog build",
     "build:all": "yarn build:landing && yarn build:blog"
