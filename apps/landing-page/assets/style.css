@@ -228,8 +228,38 @@ header {
         a{
             height: 80%;
             width: 80%;
+            position: relative;
 
             text-decoration: none;
+        }
+
+        a::after, button::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s, transform 0.3s;
+
+            padding: 5px 8px;
+            white-space: nowrap;
+            border-radius: 20px;
+            font-size: 12px;
+
+            background: var(--color-background);
+            color: var(--color-text); 
+            z-index: 1000; 
+
+            border: 1px solid var(--color-border);
+        }
+
+        a:hover::after, button:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -5px);
         }
 
         li {
@@ -281,5 +311,6 @@ header {
         border: none;
         padding: 0;
         cursor: pointer;
+        position: relative;
     }
 }
