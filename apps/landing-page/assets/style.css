@@ -39,9 +39,28 @@ body {
     font-family: "Inter", sans-serif; 
     font-style: normal;
 
-
     .svg-moon {
         display: none;
+    }
+}
+
+html {
+    .pt-icon {
+        display: none;
+    }
+
+    #lang-toggle{
+        display: none;
+    }
+}
+
+html.pt-BR{
+    .en-icon {
+        display: none;
+    }
+
+    .pt-icon {
+        display: block;
     }
 }
 
@@ -222,7 +241,7 @@ header {
         }
 
         ul:hover {
-            gap: 10px;
+            gap: 4px;
         }
 
         a{
@@ -278,6 +297,12 @@ header {
 
                 fill: var(--color-text);
             }
+            
+            span{
+                color: var(--color-text);
+                font-size: 16px;
+                font-weight: bold;
+            }
 
             .svg-github{
                 height: 22px;
@@ -294,10 +319,14 @@ header {
 
         li:hover {
             background-color: var(--color-hover-surface);
-            margin: 0 1rem;
+            margin: 0 0.7rem;
             
             svg {
                 fill: var(--color-primary);
+            }
+
+            span {
+                color: var(--color-primary);
             }
         }
     }
