@@ -76,6 +76,7 @@ p{
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    font-size: 1rem;
 }
 
 .wip-flag {
@@ -160,6 +161,103 @@ header {
     p{
         font-size: 0.9rem;
         color: var(--color-text-2);
+    }
+}
+
+.work {
+    .work-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+        gap: 12px;
+    }
+
+    .work-item .arrow {
+        display: inline-block;
+        margin-left: 5px;
+        opacity: 0;
+
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .work-item:hover .arrow {
+        opacity: 1;
+    }
+
+    .work-logo {
+        align-self: flex-start;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+    }
+
+    .work-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;   
+    }
+
+    .work-info {
+        flex-grow: 1;
+    }
+
+    .work-company {
+        font-weight: bold;
+        color: var(--color-text);
+    }
+
+    .work-role {
+        color: var(--color-text-2);
+        font-size: 0.85rem;
+    }
+
+    .work-date {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        min-width: max-content;
+
+        font-size: 0.9rem;
+        color: var(--color-text-2);
+
+        p {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* --- Lógica da Expansão --- */
+    .work-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+
+        transition: grid-template-rows 0.5s ease-out;
+    }
+
+    .work-description {
+        min-height: 0;
+        padding-top: 0;
+        transition: opacity 0.4s ease;
+        opacity: 0;
+    }
+
+    .work-description p {
+        font-size: 0.9rem;
+    }
+
+    /* Quando o item tiver a classe .active */
+    .work-item.active .work-content {
+        grid-template-rows: 1fr;
+    }
+
+    .work-item.active .work-description {
+        opacity: 1;
+        padding-top: 15px;
+    }
+
+    .work-item.active .arrow {
+        transform: rotate(90deg);
     }
 }
 
@@ -341,5 +439,17 @@ header {
         padding: 0;
         cursor: pointer;
         position: relative;
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    .work .work-date {
+        flex-direction: column-reverse;
+        gap: 0px;
+        align-items: flex-end;
+
+        .hifen {
+            display: none;
+        }
     }
 }
