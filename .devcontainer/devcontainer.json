@@ -1,35 +1,22 @@
 {
-    "name": "Portfolio Monorepo (Landing + Docusaurus)",
+    "name": "Portfolio Monorepo",
     "build": {
         "dockerfile": "Dockerfile",
         "context": "."
     },
-    
-    "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash",
-        "editor.formatOnSave": true
-    },
-
-
     "customizations": {
         "vscode": {
             "extensions": [
                 "esbenp.prettier-vscode",
                 "dbaeumer.vscode-eslint",
-                "ms-vscode.live-server",
+                "ritwickdey.liveserver",
                 "syler.sass-indented" 
             ]
         }
     },
-    
     "forwardPorts": [
-        3000
+        3000,
+        5500
     ],
-
-    "postCreateCommand": "yarn install --frozen-lockfile",
-
-    "scripts": {
-        "start:blog": "yarn workspace blog start",
-        "start:landing": "npx serve apps/landing-page -l 8080"
-    }
+    "postCreateCommand": "yarn install --frozen-lockfile"
 }
