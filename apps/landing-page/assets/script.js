@@ -47,12 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.querySelectorAll('.work-item').forEach(item => {
     item.addEventListener('click', () => {
-        // Opcional: Fecha outros itens abertos ao abrir um novo
-
         document.querySelectorAll('.work-item').forEach(other => {
             if (other !== item) other.classList.remove('active');
         });
-
         item.classList.toggle('active');
     });
 });
