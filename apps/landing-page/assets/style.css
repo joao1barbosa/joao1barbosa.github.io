@@ -276,7 +276,7 @@ header {
     }
 }
 
-.skills{
+.skills {
     .skills-list{
         display: flex;
         flex-wrap: wrap;
@@ -296,6 +296,70 @@ header {
             background-color: var(--color-hover-surface);
             color: var(--color-primary);
         }
+    }
+}
+
+.education {
+    a {
+        
+        text-decoration: none;
+    }
+
+    .education-timeline {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        border-left: 1px solid var(--color-border);
+        margin-top: 0.5rem;
+        margin-left: 2rem;
+    }
+
+    .education-item {
+        position: relative;
+        padding-left: 2rem;
+        margin: 1rem 0;
+        width: max-content;
+    }
+
+    .education-item::before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        top: 1rem;
+        width: 9px;
+        height: 9px;
+        background: var(--color-text);
+        border-radius: 50%;
+    }
+
+    .education-item:hover {
+        color: var(--color-text);
+
+        .education-item::before {
+            background: var(--color-primary);
+        }
+
+        .arrow {
+            opacity: 1;
+        }
+    }
+
+    .arrow {
+        display: inline-block;
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    h3{
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .education-meta {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        color: var(--color-text-2);
     }
 }
 
