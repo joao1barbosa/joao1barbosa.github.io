@@ -300,8 +300,9 @@ header {
 }
 
 .education {
+    width: 100%;
+
     a {
-        
         text-decoration: none;
     }
 
@@ -309,16 +310,19 @@ header {
         display: flex;
         flex-direction: column;
         justify-items: center;
-        border-left: 1px solid var(--color-border);
+        border-left: 2px solid var(--color-border);
         margin-top: 0.5rem;
-        margin-left: 2rem;
+        margin-left: 1rem;
     }
 
     .education-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         position: relative;
-        padding-left: 2rem;
+        padding-left: 1rem;
         margin: 1rem 0;
-        width: max-content;
     }
 
     .education-item::before {
@@ -356,10 +360,24 @@ header {
         margin: 0;
     }
 
-    .education-meta {
+    span {
         font-size: 0.9rem;
-        margin-top: 0.5rem;
+        margin-top: 0.6rem;
         color: var(--color-text-2);
+    }
+    
+    .education-date {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        min-width: max-content;
+
+        font-size: 0.9rem;
+        color: var(--color-text-2);
+
+        p {
+            font-size: 0.9rem;
+        }
     }
 }
 
@@ -525,6 +543,17 @@ header {
         flex-direction: column-reverse;
         gap: 0px;
         align-items: flex-end;
+
+        .hifen {
+            display: none;
+        }
+    }
+
+    .education .education-date {
+        flex-direction: column-reverse;
+        gap: 0px;
+        align-items: flex-end;
+        margin-top: 0.5rem;
 
         .hifen {
             display: none;
