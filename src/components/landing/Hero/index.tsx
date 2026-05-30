@@ -42,15 +42,9 @@ export default function Hero(): ReactNode {
           <p className={styles.subtitle}>{profile.subtitle[locale]}</p>
           <p className={styles.bio}>{bio}</p>
         </div>
-        <a
-          className={styles.avatar}
-          href={profile.socials.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub profile"
-        >
+        <div className={styles.avatar}>
           <img src={profile.avatar} alt={profile.fullName} />
-        </a>
+        </div>
       </div>
 
       <div className={styles.pills}>
