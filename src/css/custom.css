@@ -116,23 +116,14 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
 }
 
-/* ── NAVBAR (premium, sem sombra cinza padrão) ─────────────────── */
-.navbar {
-  border-bottom: 1px solid var(--lp-border);
-  box-shadow: none;
-  backdrop-filter: blur(8px);
-}
-.navbar__title {
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-.navbar__link {
-  font-size: 14px;
-}
+/* Navbar removida em todo o projeto (swizzle theme/Navbar → null). */
 
 /* ── FOOTER ────────────────────────────────────────────────────── */
 .footer {
   border-top: 1px solid var(--lp-border);
+  /* Espaço extra na base para que o dock flutuante não cubra o conteúdo
+     do rodapé (mesmo princípio do padding-bottom da landing). */
+  padding-bottom: 96px;
 }
 .footer__copyright {
   font-family: var(--ifm-font-family-monospace);
@@ -158,10 +149,4 @@ body {
 }
 :not(pre) > code {
   border: 1px solid var(--lp-border);
-}
-
-/* Esconde a navbar do Docusaurus somente na landing page (marcador
-   .home-landing). :has() é avaliado no CSS — SSR-safe e sem flash. */
-body:has(.home-landing) .navbar {
-  display: none !important;
 }

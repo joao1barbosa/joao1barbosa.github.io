@@ -44,19 +44,43 @@
   flex-shrink: 0;
   width: 36px;
   height: 36px;
+  padding: 0; /* reseta o padding nativo do <button> (lang/theme ficavam largos) */
   border: none;
   border-radius: 50%;
   background: none;
+  box-sizing: border-box;
   color: var(--lp-text-2);
   cursor: pointer;
+  line-height: 1;
   text-decoration: none;
   transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
-.btn:hover {
-  background: var(--lp-bg-3);
-  color: var(--lp-accent);
-  transform: translateY(-2px);
+/* svg/span como bloco → evita o gap de baseline (ícone subia em <button>). */
+.btn > svg,
+.btn > span {
+  display: block;
+}
+
+/* Hover só em dispositivos com ponteiro fino (evita highlight grudado no toque). */
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--lp-bg-3);
+    color: var(--lp-accent);
+    transform: translateY(-2px);
+  }
+}
+
+/* Botão de idioma desabilitado (fora da home). */
+.disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Hambúrguer: só aparece no mobile (escondido no desktop). */
+.burger {
+  display: none;
 }
 
 .mono {
@@ -89,16 +113,17 @@
   transform: translateX(-50%) translateY(0);
 }
 
-/* Theme toggle: ícone via data-theme (hydration-safe). */
-.moon {
+/* Theme toggle: ícone via data-theme (hydration-safe).
+   Especificidade elevada (.btn > svg.xxx) p/ vencer a regra .btn > svg{display:block}. */
+.btn > svg.moon {
   display: none;
 }
 
-:global([data-theme='dark']) .sun {
+:global([data-theme='dark']) .btn > svg.sun {
   display: none;
 }
 
-:global([data-theme='dark']) .moon {
+:global([data-theme='dark']) .btn > svg.moon {
   display: block;
 }
 
@@ -120,6 +145,12 @@
   .btn {
     width: 32px;
     height: 32px;
+  }
+  .burger {
+    display: flex; /* hambúrguer visível só no mobile */
+  }
+  .sectionBtn {
+    display: none; /* no mobile, dock mantém só Início (sem Work/Projects/etc) */
   }
   .btn::after {
     display: none; /* sem tooltip em touch */

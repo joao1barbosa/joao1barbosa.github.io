@@ -49,7 +49,7 @@ export type Education = {
 /* ── CONFIG ────────────────────────────────────────────────────── */
 export const config = {
   /** Liga/desliga a pill "Disponível para projetos" no Hero. */
-  availableForProjects: true,
+  availableForProjects: false,
 };
 
 export const profile = {

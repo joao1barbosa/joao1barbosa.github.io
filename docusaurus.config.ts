@@ -17,6 +17,10 @@ const config: Config = {
   organizationName: 'joao1barbosa',
   projectName: 'joao1barbosa.github.io',
   onBrokenLinks: 'throw',
+  // Os links do dock (/#work, /#projects…) apontam para ids de <section> na
+  // landing, que o checker estático do Docusaurus não registra (só anchors de
+  // headings). Os anchors existem e funcionam em runtime, então ignoramos.
+  onBrokenAnchors: 'ignore',
 
   i18n: {
     defaultLocale: 'en',

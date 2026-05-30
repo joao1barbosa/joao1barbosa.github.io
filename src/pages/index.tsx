@@ -18,8 +18,7 @@ import WorkItem from '@site/src/components/landing/WorkItem';
 import ProjectCard from '@site/src/components/landing/ProjectCard';
 import HighlightItem from '@site/src/components/landing/HighlightItem';
 import EducationItem from '@site/src/components/landing/EducationItem';
-import FloatingDock from '@site/src/components/landing/FloatingDock';
-import {LocaleProvider, useLocale} from '@site/src/components/landing/locale';
+import {useLocale} from '@site/src/components/landing/locale';
 
 import styles from './index.module.css';
 
@@ -179,12 +178,16 @@ function Contact(): ReactNode {
   );
 }
 
-function LandingContent(): ReactNode {
+export default function Home(): ReactNode {
+  const {siteConfig} = useDocusaurusContext();
   return (
-    <>
-      {/* Marcador .home-landing: custom.css usa :has() para esconder a navbar
-          apenas nesta página (SSR-safe). O dock flutuante substitui a nav. */}
-      <main className={`${styles.page} home-landing`}>
+    <Layout
+      noFooter
+      title={siteConfig.title}
+      description="João Barbosa — Fullstack Software Engineer (Next.js, Supabase, TypeScript)."
+    >
+      {/* LocaleProvider + FloatingDock são injetados globalmente via theme/Layout. */}
+      <main className={styles.page}>
         <Hero />
         <About />
         <Work />
@@ -194,22 +197,6 @@ function LandingContent(): ReactNode {
         <Education />
         <Contact />
       </main>
-      <FloatingDock />
-    </>
-  );
-}
-
-export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      noFooter
-      title={siteConfig.title}
-      description="João Barbosa — Fullstack Software Engineer (Next.js, Supabase, TypeScript)."
-    >
-      <LocaleProvider>
-        <LandingContent />
-      </LocaleProvider>
     </Layout>
   );
 }

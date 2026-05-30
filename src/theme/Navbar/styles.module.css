@@ -1,0 +1,10 @@
+/* Colapsa a barra superior: sem altura, fundo, sombra ou borda.
+   O drawer e o backdrop são position:fixed, então cobrem a tela normalmente. */
+.shell {
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
