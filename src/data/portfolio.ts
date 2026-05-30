@@ -22,7 +22,7 @@ export type WorkExperience = {
 };
 
 export type Project = {
-  name: string;
+  name: L;
   period: string;
   description: L;
   tags: string[];
@@ -199,7 +199,10 @@ export const workExperience: WorkExperience[] = [
 
 export const projects: Project[] = [
   {
-    name: 'Laboratório de Infraestrutura Self-Hosted',
+    name: {
+      en: 'Self-Hosted Infrastructure Lab',
+      pt: 'Laboratório de Infraestrutura Self-Hosted',
+    },
     period: 'Mar 2025 – Present',
     description: {
       en:
@@ -216,7 +219,10 @@ export const projects: Project[] = [
     tags: ['Docker', 'Traefik', 'Prometheus', 'Grafana', 'Tailscale', 'Cloudflare Tunnel', 'Linux'],
   },
   {
-    name: 'Gerenciador de Clientes e Cartões',
+    name: {
+      en: 'Clients & Cards Manager',
+      pt: 'Gerenciador de Clientes e Cartões',
+    },
     period: 'Set 2024',
     description: {
       en:

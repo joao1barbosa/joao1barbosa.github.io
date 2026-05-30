@@ -105,7 +105,7 @@ function Projects(): ReactNode {
     <Section index="04" title={ui.sections.projects[locale]} id="projects">
       <div className={styles.list}>
         {projects.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+          <ProjectCard key={project.name.en} project={project} />
         ))}
       </div>
     </Section>

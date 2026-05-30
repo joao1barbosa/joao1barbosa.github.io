@@ -13,7 +13,7 @@ export default function ProjectCard({project}: Props): ReactNode {
   return (
     <div className={styles.card}>
       <div className={styles.top}>
-        <span className={styles.name}>{name}</span>
+        <span className={styles.name}>{name[locale]}</span>
         <span className={styles.period}>{period}</span>
       </div>
       <p className={styles.desc}>{description[locale]}</p>
