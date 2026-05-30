@@ -1,145 +1,137 @@
-.dock {
+.wrap {
   position: fixed;
   bottom: 24px;
   left: 0;
   right: 0;
-  z-index: 200;
+  z-index: 100;
   display: flex;
   justify-content: center;
   pointer-events: none;
 }
 
-.list {
+.dock {
   display: flex;
   align-items: center;
-  gap: 0.1rem;
-  margin: 0;
-  padding: 5px 10px;
-  list-style: none;
-  background: var(--lp-surface);
+  gap: 2px;
+  max-width: calc(100vw - 32px);
+  padding: 6px 10px;
+  background: var(--lp-bg-2);
   border: 1px solid var(--lp-border);
-  border-radius: 50px;
+  border-radius: 100px;
+  box-shadow: 0 8px 32px oklch(0% 0 0 / 0.3), 0 2px 8px oklch(0% 0 0 / 0.2);
+  backdrop-filter: blur(12px);
   pointer-events: auto;
-  transition: gap 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.2s ease;
 }
 
-.list:hover {
-  gap: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+:global([data-theme='light']) .dock {
+  box-shadow: 0 8px 32px oklch(0% 0 0 / 0.1), 0 2px 8px oklch(0% 0 0 / 0.06);
 }
 
-.separator {
+.sep {
+  flex-shrink: 0;
   width: 1px;
-  height: 28px;
+  height: 24px;
   margin: 0 4px;
-  background: var(--lp-text);
-  opacity: 0.18;
+  background: var(--lp-border);
 }
 
-.link,
-.button {
+.btn {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
   border: none;
   border-radius: 50%;
   background: none;
-  color: var(--lp-text);
+  color: var(--lp-text-2);
   cursor: pointer;
-  transition: background-color 0.2s ease, margin 0.3s ease;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
-.link:hover,
-.button:hover {
-  background: var(--lp-surface-hover);
-  margin: 0 0.4rem;
+.btn:hover {
+  background: var(--lp-bg-3);
+  color: var(--lp-accent);
+  transform: translateY(-2px);
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
-  fill: var(--lp-text);
-  transition: fill 0.2s ease;
-}
-
-.iconBrand {
-  width: 20px;
-  height: 20px;
-  fill: var(--lp-text);
-  transition: fill 0.2s ease;
-}
-
-.link:hover .icon,
-.link:hover .iconBrand,
-.button:hover .sun,
-.button:hover .moon {
-  fill: var(--ifm-color-primary);
-}
-
-/* Toggle de tema: ícone via data-theme do Docusaurus (hydration-safe). */
-.sun,
-.moon {
-  width: 24px;
-  height: 24px;
-  fill: var(--lp-text);
-  transition: fill 0.2s ease;
-}
-
-.moon {
-  display: none;
-}
-
-[data-theme='dark'] .sun {
-  display: none;
-}
-
-[data-theme='dark'] .moon {
-  display: block;
+.mono {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 10px;
+  font-weight: 500;
 }
 
 /* Tooltip. */
-.link::after,
-.button::after {
-  content: attr(data-tooltip);
+.btn::after {
+  content: attr(data-tip);
   position: absolute;
-  bottom: 100%;
+  bottom: calc(100% + 8px);
   left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 2px;
-  padding: 5px 8px;
+  transform: translateX(-50%) translateY(4px);
   white-space: nowrap;
-  font-size: 12px;
-  border-radius: 20px;
-  background: var(--ifm-background-color);
-  color: var(--lp-text);
+  font-size: 11.5px;
+  padding: 4px 9px;
+  background: var(--lp-bg-3);
   border: 1px solid var(--lp-border);
+  border-radius: 100px;
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.3s ease;
-  z-index: 1000;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 10;
 }
 
-.link:hover::after,
-.button:hover::after {
+.btn:hover::after {
   opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -5px);
+  transform: translateX(-50%) translateY(0);
 }
 
-@media screen and (max-width: 480px) {
-  .icon,
-  .iconBrand,
-  .sun,
-  .moon {
-    width: 20px;
-    height: 20px;
-  }
+/* Theme toggle: ícone via data-theme (hydration-safe). */
+.moon {
+  display: none;
+}
 
-  .link,
-  .button {
-    padding: 6px;
+:global([data-theme='dark']) .sun {
+  display: none;
+}
+
+:global([data-theme='dark']) .moon {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    bottom: 16px;
+  }
+  .dock {
+    gap: 1px;
+    padding: 5px 8px;
+    border-radius: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dock::-webkit-scrollbar {
+    display: none;
+  }
+  .btn {
+    width: 32px;
+    height: 32px;
+  }
+  .btn::after {
+    display: none; /* sem tooltip em touch */
+  }
+  .sep {
+    height: 20px;
+    margin: 0 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover {
+    transform: none;
   }
 }

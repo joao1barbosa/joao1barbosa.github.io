@@ -1,146 +1,139 @@
-.container {
-  max-width: 720px;
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  max-width: 660px;
   margin: 0 auto;
-  padding: 56px 16px 140px; /* padding-bottom abre espaço para o dock flutuante */
+  padding: 72px 20px 130px; /* padding-bottom abre espaço p/ o dock flutuante */
 }
 
-.main {
+/* Animação de entrada escalonada por seção. */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page > section {
+  animation: fadeUp 0.5s ease both;
+}
+.page > section:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.page > section:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.page > section:nth-child(3) {
+  animation-delay: 0.19s;
+}
+.page > section:nth-child(4) {
+  animation-delay: 0.26s;
+}
+.page > section:nth-child(5) {
+  animation-delay: 0.33s;
+}
+.page > section:nth-child(6) {
+  animation-delay: 0.4s;
+}
+.page > section:nth-child(7) {
+  animation-delay: 0.47s;
+}
+.page > section:nth-child(8) {
+  animation-delay: 0.54s;
+}
+
+/* --- About --- */
+.about {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--lp-text-2);
+}
+.about a {
+  color: var(--lp-accent);
+  border-bottom: 1px solid var(--lp-accent-lo);
+}
+.about a:hover {
+  border-bottom-color: var(--lp-accent);
+}
+
+/* Wrapper neutro para listas de seção (work/projects/highlights/education). */
+.list {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-}
-
-/* --- Hero --- */
-.hero {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.heroIntro {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.heroIntro h1 {
   margin: 0;
-  font-size: 2.75rem;
-  line-height: 1.1;
-}
-
-.heroIntro p {
-  margin: 0;
-  font-size: 1.1rem;
-  color: var(--lp-text-muted);
-}
-
-.avatar {
-  flex-shrink: 0;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 1px solid var(--lp-border);
-  object-fit: cover;
-}
-
-/* --- Section genérica --- */
-.section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  scroll-margin-top: 80px;
-}
-
-.section h2 {
-  margin: 0;
-  font-size: 1.3rem;
-}
-
-.about p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--lp-text-muted);
-}
-
-/* --- Timeline (work + education) --- */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin: 0.5rem 0 0 0.5rem;
   padding: 0;
-  list-style: none;
-  border-left: 1px solid var(--lp-line);
+  list-style: none; /* remove o marcador (bullet) dos <li> de Work */
 }
 
 /* --- Skills --- */
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.25rem;
+  gap: 8px;
 }
-
-.skills span {
-  padding: 5px 12px;
-  border-radius: 15px;
-  background: var(--lp-surface);
-  font-size: 0.8rem;
-  font-weight: 600;
+.skill {
+  padding: 5px 13px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
+  background: var(--lp-bg-2);
+  border: 1px solid var(--lp-border);
+  color: var(--lp-text-2);
   cursor: default;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
-
-.skills span:hover {
-  background: var(--lp-surface-hover);
-  color: var(--ifm-color-primary);
-}
-
-/* --- Placeholder (Projects / Highlights) --- */
-.placeholder {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--lp-text-muted);
+.skill:hover {
+  background: var(--lp-accent-lo);
+  border-color: var(--lp-accent);
+  color: var(--lp-accent);
 }
 
 /* --- Contact --- */
 .contact {
-  align-items: center;
-  text-align: center;
-  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
-.contact h2 {
-  align-self: center;
-  padding: 5px 14px;
-  border: 1px solid var(--lp-border);
-  border-radius: 20px;
-  background: var(--lp-surface);
-  font-weight: 400;
-}
-
-.contact h3 {
+.contactHeading {
   margin: 0;
   font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--lp-text);
+}
+.contactHeading span {
+  color: var(--lp-accent);
+}
+.contactBody {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--lp-text-2);
+}
+.contactBody a {
+  color: var(--lp-accent);
+  border-bottom: 1px solid var(--lp-accent-lo);
+}
+.contactBody a:hover {
+  border-bottom-color: var(--lp-accent);
 }
 
-.contact p {
-  margin: 0;
-  font-size: 1rem;
-  color: var(--lp-text-muted);
-}
-
-@media screen and (max-width: 640px) {
-  .hero {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 1rem;
+@media (max-width: 600px) {
+  .page {
+    gap: 48px;
+    padding: 40px 16px 120px;
   }
+  .contactHeading {
+    font-size: 1.6rem;
+  }
+}
 
-  .heroIntro h1 {
-    font-size: 2.25rem;
+@media (prefers-reduced-motion: reduce) {
+  .page > section {
+    animation: none;
   }
 }

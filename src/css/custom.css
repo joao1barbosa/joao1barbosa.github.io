@@ -1,70 +1,167 @@
 /**
- * CSS global. O template clássico já inclui o Infima.
- * Aqui sobrescrevemos os tokens do Infima e definimos a fonte (Inter)
- * e os tokens próprios da landing page (--lp-*).
+ * Estilos globais. Design tokens extraídos do mockup de referência
+ * (Portfolio Standalone). Mapeamos os tokens (--lp-*) para as variáveis do
+ * Infima (--ifm-*) para que /blog e /notebook herdem a mesma identidade visual.
  */
 
-/* inter-regular - latin */
+/* ── FONTS (self-hosted, subset latin) ─────────────────────────── */
+/* DM Sans é variável: um arquivo cobre os pesos 300–700. */
 @font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300 700;
   font-display: swap;
-  font-family: 'Inter';
+  src: url('/fonts/dmsans.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'DM Mono';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/inter-v20-latin-regular.woff2') format('woff2');
-}
-/* inter-700 - latin */
-@font-face {
   font-display: swap;
-  font-family: 'Inter';
+  src: url('/fonts/dmmono-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'DM Mono';
   font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/inter-v20-latin-700.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/dmmono-500.woff2') format('woff2');
 }
 
-/* Tokens do Infima (tema claro). */
+/* ── DESIGN TOKENS ─────────────────────────────────────────────── */
+/* Tema claro (padrão Docusaurus = :root). */
 :root {
-  --ifm-color-primary: #cd8526;
-  --ifm-color-primary-dark: #b9771f;
-  --ifm-color-primary-darker: #ae7012;
-  --ifm-color-primary-darkest: #8f5c0f;
-  --ifm-color-primary-light: #d4942f;
-  --ifm-color-primary-lighter: #d79b45;
-  --ifm-color-primary-lightest: #e0b070;
-  --ifm-code-font-size: 95%;
-  --ifm-font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --lp-bg: oklch(97% 0.004 60);
+  --lp-bg-2: oklch(92% 0.006 60);
+  --lp-bg-3: oklch(87% 0.007 60);
+  --lp-border: oklch(82% 0.006 60);
+  --lp-text: oklch(14% 0.008 55);
+  --lp-text-2: oklch(46% 0.01 55);
+  --lp-accent: oklch(58% 0.18 47);
+  --lp-accent-lo: oklch(58% 0.18 47 / 0.12);
+  --lp-radius: 8px;
 
-  /* Tokens da landing page. */
-  --lp-text: #1a1a1a;
-  --lp-text-muted: #565656;
-  --lp-surface: #ededed;
-  --lp-surface-hover: #e0e0e0;
-  --lp-border: #d6d6d6;
-  --lp-line: #d0d0d0;
+  /* Paleta primária do Infima (tema claro). */
+  --ifm-color-primary: oklch(58% 0.18 47);
+  --ifm-color-primary-dark: oklch(53% 0.18 47);
+  --ifm-color-primary-darker: oklch(48% 0.18 47);
+  --ifm-color-primary-darkest: oklch(42% 0.18 47);
+  --ifm-color-primary-light: oklch(63% 0.18 47);
+  --ifm-color-primary-lighter: oklch(67% 0.18 47);
+  --ifm-color-primary-lightest: oklch(72% 0.18 47);
+
+  /* Mapeamento dos tokens → Infima (resolve por tema via indireção de var). */
+  --ifm-background-color: var(--lp-bg);
+  --ifm-background-surface-color: var(--lp-bg-2);
+  --ifm-font-color-base: var(--lp-text);
+  --ifm-heading-color: var(--lp-text);
+  --ifm-color-content-secondary: var(--lp-text-2);
+  --ifm-color-emphasis-300: var(--lp-border);
+  --ifm-toc-border-color: var(--lp-border);
+  --ifm-hr-background-color: var(--lp-border);
+  --ifm-table-border-color: var(--lp-border);
+  --ifm-table-stripe-background: var(--lp-bg-2);
+
+  --ifm-link-color: var(--lp-accent);
+  --ifm-link-hover-color: var(--lp-accent);
+  --ifm-menu-color: var(--lp-text-2);
+  --ifm-menu-color-active: var(--lp-accent);
+  --ifm-menu-color-background-active: var(--lp-accent-lo);
+  --ifm-menu-color-background-hover: var(--lp-bg-2);
+  --ifm-toc-link-color: var(--lp-text-2);
+
+  --ifm-navbar-background-color: var(--lp-bg);
+  --ifm-navbar-link-color: var(--lp-text-2);
+  --ifm-navbar-link-hover-color: var(--lp-accent);
+  --ifm-footer-background-color: var(--lp-bg-2);
+  --ifm-footer-color: var(--lp-text-2);
+  --ifm-footer-link-color: var(--lp-text-2);
+  --ifm-footer-title-color: var(--lp-text);
+
+  --ifm-card-background-color: var(--lp-bg-2);
+  --ifm-code-background: var(--lp-bg-3);
+  --ifm-code-font-size: 90%;
+  --ifm-blockquote-color: var(--lp-text-2);
+  --ifm-blockquote-border-color: var(--lp-accent);
+
+  --ifm-font-family-base: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'DM Mono', ui-monospace, 'SF Mono', monospace;
+  --ifm-global-radius: var(--lp-radius);
+  --docusaurus-highlighted-code-line-bg: var(--lp-bg-3);
 }
 
-/* Tema escuro: paleta mais clara para legibilidade. */
+/* Tema escuro (identidade principal do mockup). */
 [data-theme='dark'] {
-  --ifm-color-primary: #ff9100;
-  --ifm-color-primary-dark: #e68300;
-  --ifm-color-primary-darker: #d97c00;
-  --ifm-color-primary-darkest: #b36600;
-  --ifm-color-primary-light: #ff9d1a;
-  --ifm-color-primary-lighter: #ffa733;
-  --ifm-color-primary-lightest: #ffc266;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --lp-bg: oklch(9.5% 0.008 55);
+  --lp-bg-2: oklch(13% 0.01 55);
+  --lp-bg-3: oklch(17% 0.01 55);
+  --lp-border: oklch(22% 0.008 55);
+  --lp-text: oklch(93% 0.005 55);
+  --lp-text-2: oklch(58% 0.01 55);
+  --lp-accent: oklch(72% 0.17 55);
+  --lp-accent-lo: oklch(72% 0.17 55 / 0.12);
 
-  --lp-text: #f0f0f0;
-  --lp-text-muted: #9a9a9a;
-  --lp-surface: #1e1e1e;
-  --lp-surface-hover: #333333;
-  --lp-border: #2c2c2c;
-  --lp-line: #2c2c2c;
+  --ifm-color-primary: oklch(72% 0.17 55);
+  --ifm-color-primary-dark: oklch(67% 0.17 55);
+  --ifm-color-primary-darker: oklch(62% 0.17 55);
+  --ifm-color-primary-darkest: oklch(56% 0.17 55);
+  --ifm-color-primary-light: oklch(77% 0.17 55);
+  --ifm-color-primary-lighter: oklch(81% 0.17 55);
+  --ifm-color-primary-lightest: oklch(86% 0.17 55);
 }
 
-/* Esconde a navbar do Docusaurus somente na landing page (marcador .home-landing).
-   :has() é avaliado no CSS, então é SSR-safe e não causa flash da navbar. */
+/* ── BASE ──────────────────────────────────────────────────────── */
+body {
+  /* Textura sutil de ruído (warm), reforçando o acabamento premium. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* ── NAVBAR (premium, sem sombra cinza padrão) ─────────────────── */
+.navbar {
+  border-bottom: 1px solid var(--lp-border);
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+}
+.navbar__title {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.navbar__link {
+  font-size: 14px;
+}
+
+/* ── FOOTER ────────────────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--lp-border);
+}
+.footer__copyright {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12px;
+  color: var(--lp-text-2);
+}
+
+/* ── MARKDOWN (blog + notebook) ────────────────────────────────── */
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  letter-spacing: -0.01em;
+}
+.markdown a {
+  border-bottom: 1px solid var(--lp-accent-lo);
+}
+.markdown a:hover {
+  border-bottom-color: var(--lp-accent);
+  text-decoration: none;
+}
+.markdown blockquote {
+  border-left-width: 3px;
+}
+:not(pre) > code {
+  border: 1px solid var(--lp-border);
+}
+
+/* Esconde a navbar do Docusaurus somente na landing page (marcador
+   .home-landing). :has() é avaliado no CSS — SSR-safe e sem flash. */
 body:has(.home-landing) .navbar {
   display: none !important;
 }
-

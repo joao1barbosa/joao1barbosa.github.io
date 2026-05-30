@@ -1,115 +1,120 @@
 import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import {useColorMode} from '@docusaurus/theme-common';
-import {profile} from '@site/src/data/portfolio';
 import {
-  HomeIcon,
-  ProjectsIcon,
-  HighlightsIcon,
-  BlogIcon,
-  NotebookIcon,
-  GithubIcon,
-  LinkedinIcon,
-  XIcon,
-  SunIcon,
-  MoonIcon,
-} from './icons';
+  Home,
+  Briefcase,
+  FolderGit2,
+  GraduationCap,
+  Mail,
+  BookOpen,
+  NotebookPen,
+  Sun,
+  Moon,
+} from 'lucide-react';
+import {profile, ui} from '@site/src/data/portfolio';
+import {GithubIcon, LinkedinIcon} from '../brand-icons';
+import {useLocale} from '../locale';
 import styles from './styles.module.css';
+
+const ICON = 17;
 
 function ThemeToggle(): ReactNode {
   const {colorMode, setColorMode} = useColorMode();
+  const {locale} = useLocale();
   return (
     <button
       type="button"
-      className={styles.button}
-      data-tooltip="Theme"
+      className={styles.btn}
+      data-tip={ui.dock.theme[locale]}
       aria-label="Toggle color theme"
       onClick={() => setColorMode(colorMode === 'dark' ? 'light' : 'dark')}
     >
-      {/* Ícone alternado via CSS ([data-theme]) para evitar hydration mismatch. */}
-      <SunIcon className={styles.sun} />
-      <MoonIcon className={styles.moon} />
+      {/* Ícone alternado por CSS ([data-theme]) → hydration-safe. */}
+      <Sun className={styles.sun} size={ICON} aria-hidden="true" />
+      <Moon className={styles.moon} size={ICON} aria-hidden="true" />
     </button>
   );
 }
 
-/**
- * Dock flutuante de navegação (fixo na base, centralizado).
- * Reproduz o dock da landing page original com tooltips e toggle de tema
- * integrado ao color mode do Docusaurus.
- */
-export default function FloatingDock(): ReactNode {
+function LangToggle(): ReactNode {
+  const {locale, toggle} = useLocale();
   return (
-    <nav className={styles.dock} aria-label="Navegação rápida">
-      <ul className={styles.list}>
-        <li>
-          <a className={styles.link} href="#hero" data-tooltip="Home">
-            <HomeIcon className={styles.icon} />
-          </a>
-        </li>
-        <li>
-          <a className={styles.link} href="#projects" data-tooltip="Projects">
-            <ProjectsIcon className={styles.icon} />
-          </a>
-        </li>
-        <li>
-          <a className={styles.link} href="#highlights" data-tooltip="Highlights">
-            <HighlightsIcon className={styles.icon} />
-          </a>
-        </li>
+    <button
+      type="button"
+      className={styles.btn}
+      data-tip={ui.dock.language[locale]}
+      aria-label="Toggle language"
+      onClick={toggle}
+    >
+      <span className={styles.mono}>{locale.toUpperCase()}</span>
+    </button>
+  );
+}
 
-        <li className={styles.separator} aria-hidden="true" />
+/** Dock flutuante de navegação (fixo na base). Substitui a navbar na landing. */
+export default function FloatingDock(): ReactNode {
+  const {locale} = useLocale();
+  const t = ui.dock;
+  return (
+    <nav className={styles.wrap} aria-label="Navegação rápida">
+      <div className={styles.dock}>
+        <button
+          type="button"
+          className={styles.btn}
+          data-tip={t.home[locale]}
+          aria-label="Back to top"
+          onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+        >
+          <Home size={ICON} aria-hidden="true" />
+        </button>
+        <a className={styles.btn} href="#work" data-tip={t.work[locale]} aria-label="Work">
+          <Briefcase size={ICON} aria-hidden="true" />
+        </a>
+        <a className={styles.btn} href="#projects" data-tip={t.projects[locale]} aria-label="Projects">
+          <FolderGit2 size={ICON} aria-hidden="true" />
+        </a>
+        <a className={styles.btn} href="#education" data-tip={t.education[locale]} aria-label="Education">
+          <GraduationCap size={ICON} aria-hidden="true" />
+        </a>
+        <a className={styles.btn} href="#contact" data-tip={t.contact[locale]} aria-label="Contact">
+          <Mail size={ICON} aria-hidden="true" />
+        </a>
 
-        <li>
-          <Link className={styles.link} to="/blog" data-tooltip="Blog">
-            <BlogIcon className={styles.icon} />
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} to="/notebook" data-tooltip="Notebook">
-            <NotebookIcon className={styles.icon} />
-          </Link>
-        </li>
-        <li>
-          <a
-            className={styles.link}
-            href={profile.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-tooltip="GitHub"
-          >
-            <GithubIcon className={styles.iconBrand} />
-          </a>
-        </li>
-        <li>
-          <a
-            className={styles.link}
-            href={profile.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-tooltip="LinkedIn"
-          >
-            <LinkedinIcon className={styles.iconBrand} />
-          </a>
-        </li>
-        <li>
-          <a
-            className={styles.link}
-            href={profile.socials.x}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-tooltip="X (Twitter)"
-          >
-            <XIcon className={styles.iconBrand} />
-          </a>
-        </li>
+        <span className={styles.sep} aria-hidden="true" />
 
-        <li className={styles.separator} aria-hidden="true" />
+        <Link className={styles.btn} to="/blog" data-tip={t.blog[locale]} aria-label="Blog">
+          <BookOpen size={ICON} aria-hidden="true" />
+        </Link>
+        <Link className={styles.btn} to="/notebook" data-tip={t.notebook[locale]} aria-label="Notebook">
+          <NotebookPen size={ICON} aria-hidden="true" />
+        </Link>
+        <a
+          className={styles.btn}
+          href={profile.socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tip="GitHub"
+          aria-label="GitHub"
+        >
+          <GithubIcon size={ICON} />
+        </a>
+        <a
+          className={styles.btn}
+          href={profile.socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tip="LinkedIn"
+          aria-label="LinkedIn"
+        >
+          <LinkedinIcon size={ICON} />
+        </a>
 
-        <li>
-          <ThemeToggle />
-        </li>
-      </ul>
+        <span className={styles.sep} aria-hidden="true" />
+
+        <LangToggle />
+        <ThemeToggle />
+      </div>
     </nav>
   );
 }

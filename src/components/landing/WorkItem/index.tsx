@@ -1,7 +1,30 @@
-import type {ReactNode} from 'react';
+import {useState, type ReactNode} from 'react';
 import clsx from 'clsx';
+import {ChevronRight} from 'lucide-react';
 import type {WorkExperience} from '@site/src/data/portfolio';
+import {useLocale} from '../locale';
 import styles from './styles.module.css';
+
+function WorkLogo({
+  logo,
+  monogram,
+  alt,
+}: {
+  logo?: string;
+  monogram: string;
+  alt: string;
+}): ReactNode {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className={styles.logo}>
+      {logo && !failed ? (
+        <img src={logo} alt={alt} onError={() => setFailed(true)} />
+      ) : (
+        <span className={styles.monogram}>{monogram}</span>
+      )}
+    </div>
+  );
+}
 
 type Props = {
   work: WorkExperience;
@@ -10,42 +33,36 @@ type Props = {
 };
 
 /**
- * Item de experiência profissional no padrão "Espelhamento Minimalista":
- * conteúdo alinhado à esquerda sobre uma linha vertical fina, com as datas
- * rigidamente alinhadas à extrema direita. Clique expande a descrição (acordeão).
+ * Item de experiência no padrão "Espelhamento Minimalista": conteúdo à esquerda,
+ * período rigidamente alinhado à extrema direita. Clique expande a descrição.
  */
 export default function WorkItem({work, isOpen, onToggle}: Props): ReactNode {
-  const {company, role, start, end, description} = work;
+  const {locale} = useLocale();
+  const {company, role, period, logo, monogram, description} = work;
 
   return (
-    <li className={styles.item}>
+    <li className={clsx(styles.item, isOpen && styles.active)}>
       <button
         type="button"
-        className={styles.trigger}
+        className={styles.summary}
         aria-expanded={isOpen}
         onClick={onToggle}
       >
-        <div className={styles.header}>
-          <div className={styles.info}>
-            <span className={styles.company}>
-              {company}
-              <span className={styles.arrow} aria-hidden="true">
-                ›
-              </span>
-            </span>
-            <span className={styles.role}>{role}</span>
-          </div>
-          <span className={styles.date}>
-            {start} — {end}
-          </span>
-        </div>
-
-        <div className={clsx(styles.content, isOpen && styles.contentOpen)}>
-          <div className={styles.description}>
-            <p>{description}</p>
-          </div>
-        </div>
+        <WorkLogo logo={logo} monogram={monogram} alt={company} />
+        <span className={styles.meta}>
+          <span className={styles.company}>{company}</span>
+          <span className={styles.role}>{role[locale]}</span>
+        </span>
+        <span className={styles.right}>
+          <span className={styles.date}>{period}</span>
+        </span>
+        <ChevronRight className={styles.chevron} size={16} aria-hidden="true" />
       </button>
+      <div className={styles.body}>
+        <div className={styles.inner}>
+          <p>{description[locale]}</p>
+        </div>
+      </div>
     </li>
   );
 }

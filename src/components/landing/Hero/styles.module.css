@@ -1,0 +1,174 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--lp-text);
+}
+
+.name span {
+  color: var(--lp-accent);
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--lp-text-2);
+}
+
+.bio {
+  margin: 16px 0 0;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--lp-text-2);
+}
+
+.bio a {
+  color: var(--lp-accent);
+  border-bottom: 1px solid var(--lp-accent-lo);
+}
+
+.bio a:hover {
+  border-bottom-color: var(--lp-accent);
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--lp-border);
+  transition: border-color 0.2s ease;
+}
+
+.avatar:hover {
+  border-color: var(--lp-accent);
+}
+
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-size: 12.5px;
+  font-weight: 500;
+  border: 1px solid var(--lp-border);
+  background: var(--lp-bg-2);
+  color: var(--lp-text-2);
+}
+
+.active {
+  background: var(--lp-accent-lo);
+  border-color: var(--lp-accent);
+  color: var(--lp-accent);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lp-accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.75);
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--lp-text-2);
+  transition: color 0.2s ease;
+}
+
+.links a:hover {
+  color: var(--lp-accent);
+}
+
+@media (max-width: 600px) {
+  .name {
+    font-size: 2rem;
+  }
+  .top {
+    gap: 16px;
+  }
+  .avatar {
+    width: 72px;
+    height: 72px;
+  }
+  .links {
+    gap: 12px;
+  }
+  .links a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .name {
+    font-size: 1.75rem;
+  }
+  .subtitle {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+  }
+}

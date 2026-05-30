@@ -78,7 +78,8 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      // Sem style:'dark' → usa --ifm-footer-background-color (mapeado p/ --lp-bg-2),
+      // ficando suave e integrado ao tema em vez do cinza padrão.
       copyright: `Copyright © ${new Date().getFullYear()} João Pedro Ribeiro Barbosa.`,
     },
     prism: {

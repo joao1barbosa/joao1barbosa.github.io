@@ -1,0 +1,56 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--lp-border);
+}
+
+.card:first-child {
+  border-top: 1px solid var(--lp-border);
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--lp-text);
+}
+
+/* Período ancorado à direita. */
+.period {
+  flex-shrink: 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 11px;
+  color: var(--lp-text-2);
+  white-space: nowrap;
+}
+
+.desc {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--lp-text-2);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.tag {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 10.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--lp-bg-3);
+  border: 1px solid var(--lp-border);
+  color: var(--lp-text-2);
+}

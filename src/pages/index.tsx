@@ -1,64 +1,34 @@
 import {useState, type ReactNode} from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import {
   profile,
   workExperience,
-  education,
+  projects,
   skills,
+  highlights,
+  education,
+  ui,
 } from '@site/src/data/portfolio';
+import Hero from '@site/src/components/landing/Hero';
+import Section from '@site/src/components/landing/Section';
 import WorkItem from '@site/src/components/landing/WorkItem';
+import ProjectCard from '@site/src/components/landing/ProjectCard';
+import HighlightItem from '@site/src/components/landing/HighlightItem';
 import EducationItem from '@site/src/components/landing/EducationItem';
 import FloatingDock from '@site/src/components/landing/FloatingDock';
+import {LocaleProvider, useLocale} from '@site/src/components/landing/locale';
 
 import styles from './index.module.css';
 
-function Hero(): ReactNode {
+function Work(): ReactNode {
+  const {locale} = useLocale();
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
-    <section id="hero" className={styles.hero}>
-      <div className={styles.heroIntro}>
-        <h1>Hi, I'm {profile.name}</h1>
-        <p>
-          Software engineer amazed by building things. Check the blog to see
-          what I've done and what I'm doing.
-        </p>
-      </div>
-      <img
-        className={styles.avatar}
-        src={profile.avatar}
-        width={120}
-        height={120}
-        alt="João Barbosa"
-      />
-    </section>
-  );
-}
-
-function About(): ReactNode {
-  return (
-    <section id="about" className={`${styles.section} ${styles.about}`}>
-      <h2>About</h2>
-      <p>
-        I'm a fullstack software engineer, currently working at{' '}
-        <a href="#work">Payevo</a>, a Fintech, where I build payment products
-        with <strong>Next.js</strong>, <strong>Supabase</strong> and{' '}
-        <strong>TypeScript</strong>. Previously I completed an ICT residency at{' '}
-        <a href="#work">BRISA &amp; UFG</a>, and I'm pursuing a{' '}
-        <a href="#education">degree in software engineering</a> while sharpening
-        my craft through personal projects and innovation programs.
-      </p>
-    </section>
-  );
-}
-
-function WorkExperience(): ReactNode {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  return (
-    <section id="work" className={styles.section}>
-      <h2>Work Experience</h2>
-      <ul className={styles.timeline}>
+    <Section index="02" title={ui.sections.work[locale]} id="work">
+      <ul className={styles.list}>
         {workExperience.map((work, index) => (
           <WorkItem
             key={work.company}
@@ -68,77 +38,164 @@ function WorkExperience(): ReactNode {
           />
         ))}
       </ul>
-    </section>
+    </Section>
   );
 }
 
-function Projects(): ReactNode {
+function About(): ReactNode {
+  const {locale} = useLocale();
   return (
-    <section id="projects" className={styles.section}>
-      <h2>Projects</h2>
-      <p className={styles.placeholder}>
-        Selected work is on its way — in the meantime, explore my code on{' '}
-        <a
-          href={profile.socials.github}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
-        .
+    <Section index="01" title={ui.sections.about[locale]} id="about">
+      <p className={styles.about}>
+        {locale === 'pt' ? (
+          <>
+            Sou Engenheiro de Software FullStack na{' '}
+            <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
+              <strong>{profile.company.name}</strong>
+            </a>
+            , um gateway de pagamentos evoluindo para uma fintech. Sou
+            especializado em refatorar sistemas críticos e escalar features com{' '}
+            <strong>Next.js</strong> e <strong>Supabase</strong>. Minha trajetória
+            inclui uma <a href="#work">residência de alto impacto na BRISA &amp; UFG</a>{' '}
+            construindo software mobile para a área de saúde, e uma base sólida em{' '}
+            <a href="#work">infraestrutura de TI</a>. Estou{' '}
+            <a href="#education">cursando Engenharia de Software</a> enquanto exploro
+            arquiteturas complexas em projetos pessoais e participo de programas de
+            inovação como o Campus Mobile.
+          </>
+        ) : (
+          <>
+            I'm a FullStack Software Engineer at{' '}
+            <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
+              <strong>{profile.company.name}</strong>
+            </a>
+            , a payment gateway evolving into a fintech. I specialize in
+            refactoring critical systems and scaling features using{' '}
+            <strong>Next.js</strong> and <strong>Supabase</strong>. My journey
+            includes a high-impact <a href="#work">residency at BRISA &amp; UFG</a>{' '}
+            building healthcare mobile software, and a solid foundation in{' '}
+            <a href="#work">IT infrastructure</a>. I'm{' '}
+            <a href="#education">pursuing my degree in Software Engineering</a>{' '}
+            while exploring complex architectures through personal projects and
+            engaging in innovation programs like Campus Mobile.
+          </>
+        )}
       </p>
-    </section>
+    </Section>
   );
 }
 
 function Skills(): ReactNode {
+  const {locale} = useLocale();
   return (
-    <section id="skills" className={styles.section}>
-      <h2>Skills</h2>
+    <Section index="03" title={ui.sections.skills[locale]} id="skills">
       <div className={styles.skills}>
         {skills.map((skill) => (
-          <span key={skill}>{skill}</span>
+          <span key={skill} className={styles.skill}>
+            {skill}
+          </span>
         ))}
       </div>
-    </section>
+    </Section>
+  );
+}
+
+function Projects(): ReactNode {
+  const {locale} = useLocale();
+  return (
+    <Section index="04" title={ui.sections.projects[locale]} id="projects">
+      <div className={styles.list}>
+        {projects.map((project) => (
+          <ProjectCard key={project.name} project={project} />
+        ))}
+      </div>
+    </Section>
   );
 }
 
 function Highlights(): ReactNode {
+  const {locale} = useLocale();
   return (
-    <section id="highlights" className={styles.section}>
-      <h2>Highlights &amp; Engagements</h2>
-      <p className={styles.placeholder}>
-        Talks, events and innovation programs will be featured here soon.
-      </p>
-    </section>
+    <Section index="05" title={ui.sections.highlights[locale]} id="highlights">
+      <div className={styles.list}>
+        {highlights.map((highlight) => (
+          <HighlightItem key={highlight.name} highlight={highlight} />
+        ))}
+      </div>
+    </Section>
   );
 }
 
 function Education(): ReactNode {
+  const {locale} = useLocale();
   return (
-    <section id="education" className={styles.section}>
-      <h2>Education</h2>
-      <ul className={styles.timeline}>
+    <Section index="06" title={ui.sections.education[locale]} id="education">
+      <div className={styles.list}>
         {education.map((item) => (
           <EducationItem key={item.institution} education={item} />
         ))}
-      </ul>
-    </section>
+      </div>
+    </Section>
   );
 }
 
 function Contact(): ReactNode {
+  const {locale} = useLocale();
   return (
-    <section id="contact" className={`${styles.section} ${styles.contact}`}>
-      <h2>Contact</h2>
-      <h3>Get in Touch</h3>
-      <p>
-        Reach me via email at{' '}
-        <a href={`mailto:${profile.email}`}>{profile.email}</a> or through the
-        social links in the dock below.
-      </p>
-    </section>
+    <Section index="07" title={ui.sections.contact[locale]} id="contact">
+      <div className={styles.contact}>
+        <h2 className={styles.contactHeading}>
+          {locale === 'pt' ? (
+            <>
+              Vamos <span>conversar.</span>
+            </>
+          ) : (
+            <>
+              Let's <span>talk.</span>
+            </>
+          )}
+        </h2>
+        <p className={styles.contactBody}>
+          {locale === 'pt' ? (
+            <>
+              Me chame em{' '}
+              <a href={`mailto:${profile.email}`}>{profile.email}</a> ou pelas
+              redes abaixo. Sempre aberto a projetos e conversas interessantes.
+              Você também pode ver meu <Link to="/blog">blog</Link> e{' '}
+              <Link to="/notebook">notebook</Link>.
+            </>
+          ) : (
+            <>
+              Reach me at{' '}
+              <a href={`mailto:${profile.email}`}>{profile.email}</a> or via the
+              social links below. Always open to interesting projects and
+              conversations. You can also browse my <Link to="/blog">blog</Link>{' '}
+              and <Link to="/notebook">notebook</Link>.
+            </>
+          )}
+        </p>
+      </div>
+    </Section>
+  );
+}
+
+function LandingContent(): ReactNode {
+  return (
+    <>
+      {/* Marcador .home-landing: custom.css usa :has() para esconder a navbar
+          apenas nesta página (SSR-safe). O dock flutuante substitui a nav. */}
+      <main className={`${styles.page} home-landing`}>
+        <Hero />
+        <About />
+        <Work />
+        <Skills />
+        <Projects />
+        <Highlights />
+        <Education />
+        <Contact />
+      </main>
+      <FloatingDock />
+    </>
   );
 }
 
@@ -150,21 +207,9 @@ export default function Home(): ReactNode {
       title={siteConfig.title}
       description="João Barbosa — Fullstack Software Engineer (Next.js, Supabase, TypeScript)."
     >
-      {/* Marcador global "home-landing": custom.css usa :has() para esconder a
-          navbar apenas nesta página (SSR-safe, sem flash). O dock substitui a nav. */}
-      <main className={`${styles.container} home-landing`}>
-        <div className={styles.main}>
-          <Hero />
-          <About />
-          <WorkExperience />
-          <Projects />
-          <Skills />
-          <Highlights />
-          <Education />
-          <Contact />
-        </div>
-      </main>
-      <FloatingDock />
+      <LocaleProvider>
+        <LandingContent />
+      </LocaleProvider>
     </Layout>
   );
 }
