@@ -1,0 +1,83 @@
+.item {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.item::before {
+  content: '';
+  position: absolute;
+  left: -4.5px;
+  top: 0.35rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lp-text);
+  transition: background 0.3s ease;
+}
+
+.item:hover::before {
+  background: var(--ifm-color-primary);
+}
+
+.link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  color: inherit;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.course {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  color: var(--lp-text);
+}
+
+.institution {
+  font-size: 0.85rem;
+  color: var(--lp-text-muted);
+}
+
+.arrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.link:hover .arrow {
+  opacity: 1;
+}
+
+.date {
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--lp-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+@media screen and (max-width: 568px) {
+  .link {
+    flex-wrap: wrap;
+  }
+
+  .date {
+    margin-left: auto;
+  }
+}

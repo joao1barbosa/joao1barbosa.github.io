@@ -1,0 +1,70 @@
+/**
+ * CSS global. O template clássico já inclui o Infima.
+ * Aqui sobrescrevemos os tokens do Infima e definimos a fonte (Inter)
+ * e os tokens próprios da landing page (--lp-*).
+ */
+
+/* inter-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/inter-v20-latin-regular.woff2') format('woff2');
+}
+/* inter-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/inter-v20-latin-700.woff2') format('woff2');
+}
+
+/* Tokens do Infima (tema claro). */
+:root {
+  --ifm-color-primary: #cd8526;
+  --ifm-color-primary-dark: #b9771f;
+  --ifm-color-primary-darker: #ae7012;
+  --ifm-color-primary-darkest: #8f5c0f;
+  --ifm-color-primary-light: #d4942f;
+  --ifm-color-primary-lighter: #d79b45;
+  --ifm-color-primary-lightest: #e0b070;
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Tokens da landing page. */
+  --lp-text: #1a1a1a;
+  --lp-text-muted: #565656;
+  --lp-surface: #ededed;
+  --lp-surface-hover: #e0e0e0;
+  --lp-border: #d6d6d6;
+  --lp-line: #d0d0d0;
+}
+
+/* Tema escuro: paleta mais clara para legibilidade. */
+[data-theme='dark'] {
+  --ifm-color-primary: #ff9100;
+  --ifm-color-primary-dark: #e68300;
+  --ifm-color-primary-darker: #d97c00;
+  --ifm-color-primary-darkest: #b36600;
+  --ifm-color-primary-light: #ff9d1a;
+  --ifm-color-primary-lighter: #ffa733;
+  --ifm-color-primary-lightest: #ffc266;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --lp-text: #f0f0f0;
+  --lp-text-muted: #9a9a9a;
+  --lp-surface: #1e1e1e;
+  --lp-surface-hover: #333333;
+  --lp-border: #2c2c2c;
+  --lp-line: #2c2c2c;
+}
+
+/* Esconde a navbar do Docusaurus somente na landing page (marcador .home-landing).
+   :has() é avaliado no CSS, então é SSR-safe e não causa flash da navbar. */
+body:has(.home-landing) .navbar {
+  display: none !important;
+}
+

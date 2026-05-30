@@ -1,0 +1,145 @@
+.dock {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  margin: 0;
+  padding: 5px 10px;
+  list-style: none;
+  background: var(--lp-surface);
+  border: 1px solid var(--lp-border);
+  border-radius: 50px;
+  pointer-events: auto;
+  transition: gap 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list:hover {
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.separator {
+  width: 1px;
+  height: 28px;
+  margin: 0 4px;
+  background: var(--lp-text);
+  opacity: 0.18;
+}
+
+.link,
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--lp-text);
+  cursor: pointer;
+  transition: background-color 0.2s ease, margin 0.3s ease;
+}
+
+.link:hover,
+.button:hover {
+  background: var(--lp-surface-hover);
+  margin: 0 0.4rem;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--lp-text);
+  transition: fill 0.2s ease;
+}
+
+.iconBrand {
+  width: 20px;
+  height: 20px;
+  fill: var(--lp-text);
+  transition: fill 0.2s ease;
+}
+
+.link:hover .icon,
+.link:hover .iconBrand,
+.button:hover .sun,
+.button:hover .moon {
+  fill: var(--ifm-color-primary);
+}
+
+/* Toggle de tema: ícone via data-theme do Docusaurus (hydration-safe). */
+.sun,
+.moon {
+  width: 24px;
+  height: 24px;
+  fill: var(--lp-text);
+  transition: fill 0.2s ease;
+}
+
+.moon {
+  display: none;
+}
+
+[data-theme='dark'] .sun {
+  display: none;
+}
+
+[data-theme='dark'] .moon {
+  display: block;
+}
+
+/* Tooltip. */
+.link::after,
+.button::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 2px;
+  padding: 5px 8px;
+  white-space: nowrap;
+  font-size: 12px;
+  border-radius: 20px;
+  background: var(--ifm-background-color);
+  color: var(--lp-text);
+  border: 1px solid var(--lp-border);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.link:hover::after,
+.button:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -5px);
+}
+
+@media screen and (max-width: 480px) {
+  .icon,
+  .iconBrand,
+  .sun,
+  .moon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .link,
+  .button {
+    padding: 6px;
+  }
+}

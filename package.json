@@ -1,19 +1,51 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "Monorepo para Landing Page e Blog Docusaurus",
+  "description": "Portfolio e blog de João Barbosa, construído com Docusaurus + TypeScript.",
   "private": true,
-  "workspaces": [
-    "apps/*"
-  ],
-  "scripts": {
-    "start:blog": "yarn workspace blog start",
-    "build:landing": "echo 'Landing Page build concluído (estático)'",
-    "build:blog": "yarn workspace blog build",
-    "build:all": "yarn build:landing && yarn build:blog"
-  },
-  "keywords": [],
-  "repository": "git@github.com:joao1barbosa/portfolio.git",
+  "repository": "git@github.com:joao1barbosa/joao1barbosa.github.io.git",
   "author": "joao1barbosa <joao1barbosa@hotmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start --host 0.0.0.0",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/tsconfig": "3.9.2",
+    "@docusaurus/types": "3.9.2",
+    "typescript": "~5.6.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0"
+  }
 }

@@ -1,7 +1,8 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:24-bullseye
+# Node 20 LTS — satisfaz "engines.node >= 20" do Docusaurus.
+FROM mcr.microsoft.com/devcontainers/javascript-node:20-bullseye
 
-RUN npm install -g yarn
+# yarn já vem na imagem base; corepack garante a versão correta.
+RUN corepack enable
 
-RUN apt-get update
-
-RUN yarn install --frozen-lockfile
+# Dependências são instaladas via postCreateCommand (yarn install),
+# pois o package.json/yarn.lock só existe no workspace montado, não na imagem.
