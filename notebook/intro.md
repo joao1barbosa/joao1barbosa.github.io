@@ -3,6 +3,14 @@ sidebar_position: 1
 slug: /
 ---
 
-# My Notebook
+# Notebook
 
-Here you will find a correct documentation of the things that I've done.
+A technical knowledge base — how-tos, notes, and lessons from the things I build and study.
+Written to be reproducible: if it's documented here, you (or future me) should be able to
+follow it end to end.
+
+Pick a topic from the sidebar:
+
+- **DevEx / Platform** — developer experience and platform tooling.
+- **Linux** — Linux and workstation setup.
+- **Homelab** — my self-hosted infrastructure (work in progress).
