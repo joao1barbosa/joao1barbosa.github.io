@@ -123,7 +123,7 @@ export const workExperience: WorkExperience[] = [
   {
     company: 'BRISA & UFG',
     role: {en: 'Software Engineer', pt: 'Engenheiro de Software'},
-    period: 'Feb 2025 — Dec 2025',
+    period: 'Jul 2025 — Dec 2025',
     logo: '/img/work/brisa.webp',
     monogram: 'BR',
     description: {
