@@ -87,8 +87,8 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} João Pedro Ribeiro Barbosa.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.jettwaveLight,
+      darkTheme: prismThemes.vsDark,
     },
   } satisfies Preset.ThemeConfig,
 };
