@@ -107,17 +107,18 @@ export const workExperience: WorkExperience[] = [
     monogram: 'P',
     description: {
       en:
-        'FullStack Software Engineer at an expanding payment gateway transitioning into a Fintech, ' +
-        'leveraging a modern stack based on Next.js and Supabase (TypeScript). Responsible for ' +
-        'identifying, prioritizing, and executing critical refactoring of legacy modules, implementing ' +
-        'complex integrations for acquirers and checkouts, and developing advanced auditing tools for ' +
-        'transaction monitoring.',
+        'Full Stack Software Engineer at a payment gateway transitioning into a fintech (Next.js, ' +
+        'Supabase, TypeScript). I own the design and delivery of my tasks — critical refactoring of ' +
+        'legacy modules, complex integrations with acquirers and checkouts, and auditing tools for ' +
+        'transaction monitoring. I use AI code agents actively in implementation and refactoring, as a ' +
+        'first layer of technical review, while the architectural decisions stay mine.',
       pt:
-        'Engenheiro de Software FullStack em um gateway de pagamentos em expansão, evoluindo para uma ' +
-        'Fintech, com stack moderna baseada em Next.js e Supabase (TypeScript). Responsável por ' +
-        'identificar, priorizar e executar refatorações críticas de módulos legados, implementar ' +
-        'integrações complexas com adquirentes e checkouts, e desenvolver ferramentas avançadas de ' +
-        'auditoria para monitoramento de transações.',
+        'Engenheiro de Software Full Stack em um gateway de pagamentos evoluindo para uma fintech ' +
+        '(Next.js, Supabase, TypeScript). Conduzo o design e a entrega das minhas tasks — refatorações ' +
+        'críticas de módulos legados, integrações complexas com adquirentes e checkouts, e ferramentas ' +
+        'de auditoria para monitoramento de transações. Uso agentes de código (IA) ativamente na ' +
+        'implementação e refatoração, como primeira camada de revisão técnica — mas as decisões de ' +
+        'arquitetura seguem minhas.',
     },
   },
   {
@@ -128,16 +129,18 @@ export const workExperience: WorkExperience[] = [
     monogram: 'BR',
     description: {
       en:
-        'Backend Developer in a high-impact technology residency program, responsible for modernizing ' +
-        'the "Mamãe Pingo" mobile ecosystem. Led the technical restructuring of a legacy system, ' +
-        'implementing automated testing standards and containerized development environments that ' +
-        'boosted team productivity and software reliability for healthcare stakeholders.',
+        'Backend developer in a high-impact technology residency, modernizing a maternal & child ' +
+        'healthcare platform. I led the technical restructuring of a legacy system, introduced ' +
+        'automated testing standards, and standardized containerized development environments that ' +
+        'boosted team productivity and reliability. With limited access to in-person mentors, I used AI ' +
+        'as a "virtual senior" to validate data modeling and architecture before implementing features.',
       pt:
-        'Desenvolvedor Backend em um programa de residência em tecnologia de alto impacto, responsável ' +
-        'por modernizar o ecossistema mobile "Mamãe Pingo". Liderei a reestruturação técnica de um ' +
-        'sistema legado, implementando padrões de testes automatizados e ambientes de desenvolvimento ' +
-        'containerizados que elevaram a produtividade do time e a confiabilidade do software para ' +
-        'stakeholders da área de saúde.',
+        'Desenvolvedor backend em uma residência tecnológica de alto impacto, modernizando uma ' +
+        'plataforma de saúde materno-infantil. Liderei a reestruturação técnica de um sistema legado, ' +
+        'introduzi padrões de testes automatizados e padronizei ambientes de desenvolvimento ' +
+        'containerizados que elevaram a produtividade e a confiabilidade do time. Com pouca ' +
+        'disponibilidade de mentores presenciais, usei IA como um "sênior virtual" para validar ' +
+        'modelagem de dados e arquitetura antes de implementar novas features.',
     },
   },
   {
@@ -148,14 +151,17 @@ export const workExperience: WorkExperience[] = [
     monogram: 'PD',
     description: {
       en:
-        'Strategic role within the infrastructure department, ensuring high availability and stability ' +
-        'for public management systems across on-premise and cloud (AWS) environments. Responsible for ' +
-        'proactive monitoring of critical services and automating update routines on Linux servers.',
+        'Infrastructure role ensuring high availability and stability for public-management systems ' +
+        'across on-premise and cloud (AWS) environments — proactive monitoring of critical services, ' +
+        'incident response, and automation of update routines on Linux servers. I used LLMs to resolve ' +
+        'infra and Linux questions quickly and to structure complex problems before taking them to ' +
+        'technical leadership, saving the team time.',
       pt:
-        'Função estratégica no departamento de infraestrutura, garantindo alta disponibilidade e ' +
-        'estabilidade para sistemas de gestão pública em ambientes on-premise e cloud (AWS). Responsável ' +
-        'pelo monitoramento proativo de serviços críticos e pela automação de rotinas de atualização em ' +
-        'servidores Linux.',
+        'Função de infraestrutura garantindo alta disponibilidade e estabilidade para sistemas de ' +
+        'gestão pública em ambientes on-premise e cloud (AWS) — monitoramento proativo de serviços ' +
+        'críticos, resposta a incidentes e automação de rotinas de atualização em servidores Linux. ' +
+        'Usei LLMs para sanar dúvidas de infra e Linux rapidamente e estruturar problemas complexos ' +
+        'antes de levá-los à liderança técnica, otimizando o tempo do time.',
     },
   },
   {
@@ -199,42 +205,109 @@ export const workExperience: WorkExperience[] = [
 
 export const projects: Project[] = [
   {
+    name: {en: 'PantryChef', pt: 'PantryChef'},
+    period: '2026',
+    description: {
+      en:
+        'A recipe API built with FastAPI: search recipes by the ingredients you have, and when nothing ' +
+        'matches, one is generated by AI and persisted automatically. Layered architecture with JWT ' +
+        'auth, an isolated test suite, and the AI integration behind a single testable seam — written ' +
+        'spec-first, then implemented with AI assistance.',
+      pt:
+        'Uma API de receitas em FastAPI: busca por ingredientes que você tem em casa e, quando nada ' +
+        'corresponde, uma receita é gerada por IA e persistida automaticamente. Arquitetura em camadas ' +
+        'com autenticação JWT, suíte de testes isolada e a integração de IA atrás de uma fronteira ' +
+        'única e testável — feita spec-first e implementada com apoio de IA.',
+    },
+    tags: ['Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'JWT', 'Docker', 'AI'],
+  },
+  {
     name: {
       en: 'Self-Hosted Infrastructure Lab',
       pt: 'Laboratório de Infraestrutura Self-Hosted',
     },
-    period: 'Mar 2025 – Present',
+    period: '2025 – Present',
     description: {
       en:
-        'Personal containerized infrastructure used as an experimentation environment for DevOps ' +
-        'practices, observability, and secure networking. The environment replicates ' +
-        'production-inspired tooling — monitoring stacks, automated updates, and zero-trust service ' +
-        'exposure without open ports.',
+        'Personal containerized infrastructure used as an R&D environment for platform and DevOps ' +
+        'practices — observability, automated updates, and zero-trust service exposure without open ' +
+        'ports. Currently being rebuilt on Proxmox VE to enforce a real platform-vs-workload separation.',
       pt:
-        'Infraestrutura pessoal containerizada usada como ambiente de experimentação para práticas de ' +
-        'DevOps, observabilidade e redes seguras. O ambiente replica ferramentas inspiradas em produção ' +
-        '— stacks de monitoramento, atualizações automatizadas e exposição de serviços zero-trust sem ' +
-        'portas abertas.',
+        'Infraestrutura pessoal containerizada usada como ambiente de R&D para práticas de plataforma ' +
+        'e DevOps — observabilidade, atualizações automatizadas e exposição de serviços zero-trust sem ' +
+        'portas abertas. Em reconstrução sobre Proxmox VE para impor uma separação real entre ' +
+        'plataforma e workload.',
     },
-    tags: ['Docker', 'Traefik', 'Prometheus', 'Grafana', 'Tailscale', 'Cloudflare Tunnel', 'Linux'],
+    tags: ['Proxmox', 'Docker', 'Traefik', 'Prometheus', 'Grafana', 'Tailscale', 'Linux'],
+  },
+  {
+    name: {en: 'CSV Operator Distribution', pt: 'CSV Operator Distribution'},
+    period: '2024',
+    description: {
+      en:
+        'A fullstack technical challenge: bulk-register clients from a CSV upload and distribute them ' +
+        'across operators, with CSV import/export. A NestJS API with unit tests per layer (services, ' +
+        'controllers, validators) behind a Next.js frontend — TypeScript end to end.',
+      pt:
+        'Um desafio técnico fullstack: cadastro em massa de clientes a partir de um CSV, distribuídos ' +
+        'entre operadores, com import/export de CSV. Uma API NestJS com testes unitários por camada ' +
+        '(services, controllers, validators) e um frontend Next.js — TypeScript de ponta a ponta.',
+    },
+    tags: ['NestJS', 'Prisma', 'Next.js', 'TypeScript', 'Jest', 'Docker'],
+  },
+  {
+    name: {
+      en: 'Multi-User Chat (Client/Server)',
+      pt: 'Chat Multiusuário (Cliente/Servidor)',
+    },
+    period: '2026',
+    description: {
+      en:
+        'A real-time multi-user chat over TLS 1.3 TCP sockets, with a custom binary-header + JSON ' +
+        'protocol. A Java multi-module client/server where the server runs one thread per client and ' +
+        'broadcasts to everyone connected.',
+      pt:
+        'Um chat multiusuário em tempo real sobre sockets TCP com TLS 1.3, com protocolo próprio de ' +
+        'cabeçalho binário + payload JSON. Um cliente/servidor Java multi-módulo onde o servidor roda ' +
+        'uma thread por cliente e faz broadcast para todos os conectados.',
+    },
+    tags: ['Java', 'Maven', 'TLS', 'Sockets', 'Concurrency'],
   },
   {
     name: {
       en: 'Clients & Cards Manager',
       pt: 'Gerenciador de Clientes e Cartões',
     },
-    period: 'Set 2024',
+    period: '2024',
     description: {
       en:
-        'Fullstack application developed as a technical challenge to manage clients and credit card ' +
-        'data through a structured REST API and relational database model. Focused on type safety, ' +
-        'schema validation, and modern frontend development practices.',
+        'A fullstack technical challenge to manage clients and their credit cards through a structured ' +
+        'REST API and a relational data model. Focused on type safety, schema validation, and modern ' +
+        'frontend practices.',
       pt:
-        'Aplicação fullstack desenvolvida como desafio técnico para gerenciar clientes e dados de ' +
-        'cartões de crédito por meio de uma API REST estruturada e um modelo de banco relacional. Foco ' +
-        'em type safety, validação de schema e práticas modernas de desenvolvimento frontend.',
+        'Um desafio técnico fullstack para gerenciar clientes e seus cartões de crédito por meio de uma ' +
+        'API REST estruturada e um modelo de dados relacional. Foco em type safety, validação de schema ' +
+        'e práticas modernas de frontend.',
     },
     tags: ['Next.js', 'TypeScript', 'Laravel', 'MySQL', 'React Query', 'Zod'],
+  },
+  {
+    name: {
+      en: 'Micro Wallet — Async Transactions',
+      pt: 'Micro Wallet — Transações Assíncronas',
+    },
+    period: '2025',
+    description: {
+      en:
+        'A learning project on asynchronous money transfers: a Lumen/PHP API that accepts a transfer ' +
+        '(202/pending) for a queue-based worker to settle later, with money handled in integer cents, ' +
+        'a PHPUnit test suite, and RabbitMQ in the stack.',
+      pt:
+        'Um projeto de estudo sobre transferências assíncronas: uma API Lumen/PHP que aceita a ' +
+        'transferência (202/pending) para um worker de fila liquidar depois, com valores em centavos, ' +
+        'suíte de testes PHPUnit e RabbitMQ na stack.',
+    },
+    tags: ['PHP', 'Lumen', 'RabbitMQ', 'MySQL', 'PHPUnit'],
   },
 ];
 
@@ -243,14 +316,18 @@ export const skills: string[] = [
   'React Native',
   'Next.js',
   'Node.js',
+  'NestJS',
   'TypeScript',
-  'Supabase',
-  'Laravel',
-  'PHP',
   'Python',
+  'FastAPI',
+  'PHP',
+  'Laravel',
+  'Supabase',
+  'PostgreSQL',
   'Docker',
   'Linux',
   'AWS',
+  'Prometheus',
   'Git',
 ];
 

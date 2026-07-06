@@ -52,15 +52,17 @@ function About(): ReactNode {
             <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
               <strong>{profile.company.name}</strong>
             </a>
-            , um gateway de pagamentos evoluindo para uma fintech. Sou
-            especializado em refatorar sistemas críticos e escalar features com{' '}
-            <strong>Next.js</strong> e <strong>Supabase</strong>. Minha trajetória
-            inclui uma <a href="#work">residência de alto impacto na BRISA &amp; UFG</a>{' '}
-            construindo software mobile para a área de saúde, e uma base sólida em{' '}
-            <a href="#work">infraestrutura de TI</a>. Estou{' '}
+            , um gateway de pagamentos evoluindo para uma fintech, onde refatoro
+            sistemas críticos e entrego features de pagamento com{' '}
+            <strong>Next.js</strong> e <strong>Supabase</strong> — usando IA como
+            alavanca de engenharia, com as decisões de arquitetura sempre sob meu
+            controle. Minha trajetória une desenvolvimento e infraestrutura: uma{' '}
+            <a href="#work">residência de alto impacto na BRISA &amp; UFG</a>{' '}
+            (backend para a área de saúde) e uma{' '}
+            <a href="#work">base sólida em infraestrutura de TI</a>, que hoje
+            aprofundo num homelab próprio de R&amp;D. Estou{' '}
             <a href="#education">cursando Engenharia de Software</a> enquanto exploro
-            arquiteturas complexas em projetos pessoais e participo de programas de
-            inovação como o Campus Mobile.
+            arquitetura e sistemas distribuídos em projetos pessoais.
           </>
         ) : (
           <>
@@ -68,15 +70,16 @@ function About(): ReactNode {
             <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
               <strong>{profile.company.name}</strong>
             </a>
-            , a payment gateway evolving into a fintech. I specialize in
-            refactoring critical systems and scaling features using{' '}
-            <strong>Next.js</strong> and <strong>Supabase</strong>. My journey
-            includes a high-impact <a href="#work">residency at BRISA &amp; UFG</a>{' '}
-            building healthcare mobile software, and a solid foundation in{' '}
-            <a href="#work">IT infrastructure</a>. I'm{' '}
-            <a href="#education">pursuing my degree in Software Engineering</a>{' '}
-            while exploring complex architectures through personal projects and
-            engaging in innovation programs like Campus Mobile.
+            , a payment gateway evolving into a fintech, where I refactor critical
+            systems and ship payment features with <strong>Next.js</strong> and{' '}
+            <strong>Supabase</strong> — using AI as an engineering lever, with the
+            architectural decisions always mine. My path bridges development and
+            infrastructure: a high-impact{' '}
+            <a href="#work">residency at BRISA &amp; UFG</a> (backend for healthcare)
+            and a <a href="#work">solid foundation in IT infrastructure</a>, which I
+            now deepen in a personal R&amp;D homelab. I'm{' '}
+            <a href="#education">pursuing my degree in Software Engineering</a> while
+            exploring architecture and distributed systems through personal projects.
           </>
         )}
       </p>
