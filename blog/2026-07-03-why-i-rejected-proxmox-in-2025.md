@@ -3,7 +3,7 @@ slug: why-i-rejected-proxmox-in-2025
 title: "Why I Rejected Proxmox in 2025 — and Adopt It in 2026"
 authors: [joao1barbosa]
 tags: [homelab, proxmox, virtualization, infrastructure]
-image: /img/og-blog.png
+image: /img/og-proxmox-reversal.png
 ---
 
 Reversing a technical decision is usually read as inconsistency. I'd argue the
@@ -13,6 +13,8 @@ This is the story of one decision I made twice — and got right both times, bec
 the context wasn't the same.
 
 <!-- truncate -->
+
+![Two eras of the homelab side by side: on the left, the scrapped Sony VAIO that ran the lab in 2025; on the right, the Lenovo ThinkCentre M900 Tiny that replaces it in 2026.](/img/proxmox-2025-vs-2026.jpg)
 
 ## 2025: the wrong tool for a dying laptop
 
