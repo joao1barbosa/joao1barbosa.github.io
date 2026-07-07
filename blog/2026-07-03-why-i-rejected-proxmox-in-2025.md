@@ -3,6 +3,7 @@ slug: why-i-rejected-proxmox-in-2025
 title: "Why I Rejected Proxmox in 2025 — and Adopt It in 2026"
 authors: [joao1barbosa]
 tags: [homelab, proxmox, virtualization, infrastructure]
+image: /img/og-blog.png
 ---
 
 Reversing a technical decision is usually read as inconsistency. I'd argue the
