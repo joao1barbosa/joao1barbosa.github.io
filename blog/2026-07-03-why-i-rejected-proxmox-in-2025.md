@@ -36,6 +36,11 @@ engineering to survive on 4 GB, a custom systemd service to keep Wake-on-LAN ali
 across reboots, a reverse proxy and secure tunnels stacked on top. Survival
 engineering — stories for the next posts in this series.
 
+But that laptop earned its place. It was the hardware I had, and running a real lab
+on top of it is what taught me where the limits actually are — the kind of judgment
+you can't read your way into. The scrap wasn't an obstacle to the journey; it was
+the start of it.
+
 ## 2026: the premise changed
 
 The scrapped laptop is now retired. The lab moves to a dedicated Lenovo ThinkCentre
@@ -67,7 +72,9 @@ free — and reaching for a VM by reflex is exactly how you run out of it.
 Rejecting Proxmox in 2025 and adopting it in 2026 isn't a contradiction. It's the
 same principle — fit the tool to the real constraint — applied to two different
 realities. The value was never in choosing Proxmox or not; it was in being willing to
-reverse the call the moment the premise moved.
+reverse the call the moment the premise moved. And the confidence to make that call
+in 2026 — to know the premise really had changed, and what to do about it — was earned
+on that scrapped laptop, one constraint at a time.
 
 We tend to over-reward consistency and under-reward re-evaluation. A decision defended
 past its context isn't discipline — it's inertia with better branding.
