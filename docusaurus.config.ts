@@ -49,6 +49,8 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // og:image padrão do site (usado no link preview da landing/portfólio).
+    image: 'img/og-portfolio.png',
     metadata: [
       {
         name: 'description',
