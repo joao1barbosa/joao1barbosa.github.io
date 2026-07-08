@@ -2,6 +2,7 @@
 id: test-driven-development
 title: Test-Driven Development (TDD)
 sidebar_label: TDD
+sidebar_position: 3
 description: The red-green-refactor loop that turns tests into a design tool — write a failing test first, make it pass with the minimum code, then improve — plus what separates a good test from a brittle one.
 ---
 
@@ -43,3 +44,7 @@ Beyond FIRST, a good test:
 Done well, TDD produces a design shaped by how the code is actually used, and a suite of tests that
 are fast, isolated, and honest about failure. The tests stop being a chore you add afterward and
 become the thing that drives the code into shape.
+
+---
+*Studied from freeCodeCamp's [Software Testing with Playwright](https://www.freecodecamp.org/news/software-testing-with-playwright/)
+course. The "what makes a good test" section (FIRST) is standard practice added for completeness.*

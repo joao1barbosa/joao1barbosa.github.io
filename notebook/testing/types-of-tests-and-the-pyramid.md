@@ -2,6 +2,7 @@
 id: types-of-tests-and-the-pyramid
 title: Types of Tests and the Testing Pyramid
 sidebar_label: Types & the Pyramid
+sidebar_position: 2
 description: The three test scopes — unit, integration, and end-to-end — how the testing pyramid balances them, and the specialized test types (smoke, regression, performance, security, accessibility) that sit alongside.
 ---
 
@@ -59,4 +60,4 @@ where they earn their cost, and add specialized types as the risk demands.
 
 ---
 *Studied from freeCodeCamp's [Software Testing with Playwright](https://www.freecodecamp.org/news/software-testing-with-playwright/)
-course ([video](https://www.youtube.com/watch?v=u6QfIXgjwGQ)).*
+course.*

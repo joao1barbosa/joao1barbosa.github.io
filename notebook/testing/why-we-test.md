@@ -2,6 +2,7 @@
 id: why-we-test
 title: Why We Test
 sidebar_label: Why We Test
+sidebar_position: 1
 description: Software changes constantly, and tests are the safety net that keeps each change from silently breaking what already worked — plus the ROI case for writing them.
 ---
 
@@ -65,5 +66,5 @@ convert "I hope this still works" into "the suite says it works," on every commi
 hope to evidence, is the point.
 
 ---
-*Studied from freeCodeCamp's [Software Testing with Playwright](https://www.freecodecamp.org/news/software-testing-with-playwright/)
-course ([video](https://www.youtube.com/watch?v=u6QfIXgjwGQ)).*
+*Sources: freeCodeCamp's [Software Testing with Playwright](https://www.freecodecamp.org/news/software-testing-with-playwright/)
+course, and [this video](https://www.youtube.com/watch?v=u6QfIXgjwGQ) on why we test.*
