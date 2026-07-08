@@ -27,15 +27,13 @@ The pyramid encodes a trade-off. As you move up, tests get **slower, more expens
 fragile** — so you write fewer of them.
 
 ```
-                 ╱╲
-                ╱  ╲                ▲
-               ╱ E2E╲               │  slower
-              ╱──────╲              │  costlier
-             ╱ Integr.╲             │  more fragile
-            ╱──────────╲            │
-           ╱    Unit     ╲          │  (fewer at the top,
-          ╱──────────────╲         │   more at the bottom)
-         ╱________________╲         │
+          ┌───────┐          ▲
+          │  E2E  │          │  slower
+       ┌──┴───────┴──┐       │  costlier
+       │ Integration │       │  more fragile
+    ┌──┴─────────────┴──┐    │
+    │       Unit        │    │  (fewer at the top,
+    └───────────────────┘    │   more at the bottom)
 ```
 
 The rule of thumb: **many unit tests, some integration tests, few E2E tests.** That shape keeps the
