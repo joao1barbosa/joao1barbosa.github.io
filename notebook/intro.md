@@ -12,5 +12,6 @@ follow it end to end.
 Pick a topic from the sidebar:
 
 - **DevEx / Platform** — developer experience and platform tooling.
+- **Testing** — software testing fundamentals, from the pyramid to TDD.
 - **Linux** — Linux and workstation setup.
 - **Homelab** — my self-hosted infrastructure (work in progress).
