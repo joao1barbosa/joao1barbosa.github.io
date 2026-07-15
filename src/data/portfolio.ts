@@ -205,6 +205,30 @@ export const workExperience: WorkExperience[] = [
 
 export const projects: Project[] = [
   {
+    name: {en: 'FX Remittance Ledger', pt: 'FX Remittance Ledger'},
+    period: '2026',
+    description: {
+      en:
+        'An event-sourced vertical slice of an FX remittance pipeline (BRL → USD over crypto rails), ' +
+        'built as a take-home. A single FxOperation aggregate moves through six asynchronous steps — ' +
+        'quote, deposit, compliance, conversion, settlement, reconcile — each emitting an immutable, ' +
+        'past-tense fact. The engineering lives in the deviations: expired quote windows, conversion ' +
+        'slippage recorded rather than halted, idempotent webhooks that never pay twice, and a ' +
+        'reconciliation that can fail. Money is always integer cents; the ledger is a double-entry ' +
+        'projection rebuilt by replay, proven by a Pest suite of business scenarios.',
+      pt:
+        'Uma fatia vertical event-sourced de um pipeline de remessa cambial (BRL → USD sobre trilhos ' +
+        'de cripto), feita como desafio técnico. Um único agregado FxOperation percorre seis passos ' +
+        'assíncronos — cotação, depósito, compliance, conversão, liquidação, reconciliação — cada um ' +
+        'emitindo um fato imutável no passado. A engenharia mora nos desvios: janelas de cotação ' +
+        'expiradas, slippage de conversão registrado em vez de interrompido, webhooks idempotentes que ' +
+        'nunca pagam duas vezes e uma reconciliação que pode reprovar. Dinheiro é sempre centavos ' +
+        'inteiros; o ledger é uma projeção double-entry reconstruída por replay, provada por uma suíte ' +
+        'Pest de cenários de negócio.',
+    },
+    tags: ['PHP', 'Laravel', 'Event Sourcing', 'PostgreSQL', 'Pest', 'Docker'],
+  },
+  {
     name: {en: 'PantryChef', pt: 'PantryChef'},
     period: '2026',
     description: {
