@@ -23,7 +23,8 @@ export type WorkExperience = {
 
 export type Project = {
   name: L;
-  period: string;
+  /** Ano fixo ("2026") ou um rótulo localizado para projetos em andamento. */
+  period: string | L;
   description: L;
   tags: string[];
 };
@@ -203,7 +204,53 @@ export const workExperience: WorkExperience[] = [
   },
 ];
 
+// Ordem: o homelab é sempre o primeiro (projeto vivo, período "em andamento");
+// os demais seguem do mais recente para o mais antigo. Ver runbook em
+// control-plane: runbooks/portfolio-landing-content.md.
 export const projects: Project[] = [
+  {
+    name: {
+      en: 'Self-Hosted Infrastructure Lab',
+      pt: 'Laboratório de Infraestrutura Self-Hosted',
+    },
+    period: {en: 'Ongoing', pt: 'Em andamento'},
+    description: {
+      en:
+        'Personal containerized infrastructure used as an R&D environment for platform and DevOps ' +
+        'practices — observability, automated updates, and zero-trust service exposure without open ' +
+        'ports. Currently being rebuilt on Proxmox VE to enforce a real platform-vs-workload separation.',
+      pt:
+        'Infraestrutura pessoal containerizada usada como ambiente de R&D para práticas de plataforma ' +
+        'e DevOps — observabilidade, atualizações automatizadas e exposição de serviços zero-trust sem ' +
+        'portas abertas. Em reconstrução sobre Proxmox VE para impor uma separação real entre ' +
+        'plataforma e workload.',
+    },
+    tags: ['Proxmox', 'Docker', 'Traefik', 'Prometheus', 'Grafana', 'Tailscale', 'Linux'],
+  },
+  {
+    name: {en: 'FX Remittance Ledger', pt: 'Livro-Razão de Remessas Cambiais'},
+    period: '2026',
+    description: {
+      en:
+        'An event-sourced vertical slice of an FX remittance pipeline (BRL → USD over crypto rails), ' +
+        'built as a take-home. A single FxOperation aggregate moves through six asynchronous steps — ' +
+        'quote, deposit, compliance, conversion, settlement, reconcile — each emitting an immutable, ' +
+        'past-tense fact. The engineering lives in the deviations: expired quote windows, conversion ' +
+        'slippage recorded rather than halted, idempotent webhooks that never pay twice, and a ' +
+        'reconciliation that can fail. Money is always integer cents; the ledger is a double-entry ' +
+        'projection rebuilt by replay, proven by a Pest suite of business scenarios.',
+      pt:
+        'Uma fatia vertical event-sourced de um pipeline de remessa cambial (BRL → USD sobre trilhos ' +
+        'de cripto), feita como desafio técnico. Um único agregado FxOperation percorre seis passos ' +
+        'assíncronos — cotação, depósito, compliance, conversão, liquidação, reconciliação — cada um ' +
+        'emitindo um fato imutável no passado. A engenharia mora nos desvios: janelas de cotação ' +
+        'expiradas, slippage de conversão registrado em vez de interrompido, webhooks idempotentes que ' +
+        'nunca pagam duas vezes e uma reconciliação que pode reprovar. Dinheiro é sempre centavos ' +
+        'inteiros; o ledger é uma projeção double-entry reconstruída por replay, provada por uma suíte ' +
+        'Pest de cenários de negócio.',
+    },
+    tags: ['PHP', 'Laravel', 'Event Sourcing', 'PostgreSQL', 'Pest', 'Docker'],
+  },
   {
     name: {en: 'PantryChef', pt: 'PantryChef'},
     period: '2026',
@@ -220,40 +267,6 @@ export const projects: Project[] = [
         'única e testável — feita spec-first e implementada com apoio de IA.',
     },
     tags: ['Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'JWT', 'Docker', 'AI'],
-  },
-  {
-    name: {
-      en: 'Self-Hosted Infrastructure Lab',
-      pt: 'Laboratório de Infraestrutura Self-Hosted',
-    },
-    period: '2025 – Present',
-    description: {
-      en:
-        'Personal containerized infrastructure used as an R&D environment for platform and DevOps ' +
-        'practices — observability, automated updates, and zero-trust service exposure without open ' +
-        'ports. Currently being rebuilt on Proxmox VE to enforce a real platform-vs-workload separation.',
-      pt:
-        'Infraestrutura pessoal containerizada usada como ambiente de R&D para práticas de plataforma ' +
-        'e DevOps — observabilidade, atualizações automatizadas e exposição de serviços zero-trust sem ' +
-        'portas abertas. Em reconstrução sobre Proxmox VE para impor uma separação real entre ' +
-        'plataforma e workload.',
-    },
-    tags: ['Proxmox', 'Docker', 'Traefik', 'Prometheus', 'Grafana', 'Tailscale', 'Linux'],
-  },
-  {
-    name: {en: 'CSV Operator Distribution', pt: 'CSV Operator Distribution'},
-    period: '2024',
-    description: {
-      en:
-        'A fullstack technical challenge: bulk-register clients from a CSV upload and distribute them ' +
-        'across operators, with CSV import/export. A NestJS API with unit tests per layer (services, ' +
-        'controllers, validators) behind a Next.js frontend — TypeScript end to end.',
-      pt:
-        'Um desafio técnico fullstack: cadastro em massa de clientes a partir de um CSV, distribuídos ' +
-        'entre operadores, com import/export de CSV. Uma API NestJS com testes unitários por camada ' +
-        '(services, controllers, validators) e um frontend Next.js — TypeScript de ponta a ponta.',
-    },
-    tags: ['NestJS', 'Prisma', 'Next.js', 'TypeScript', 'Jest', 'Docker'],
   },
   {
     name: {
@@ -275,24 +288,6 @@ export const projects: Project[] = [
   },
   {
     name: {
-      en: 'Clients & Cards Manager',
-      pt: 'Gerenciador de Clientes e Cartões',
-    },
-    period: '2024',
-    description: {
-      en:
-        'A fullstack technical challenge to manage clients and their credit cards through a structured ' +
-        'REST API and a relational data model. Focused on type safety, schema validation, and modern ' +
-        'frontend practices.',
-      pt:
-        'Um desafio técnico fullstack para gerenciar clientes e seus cartões de crédito por meio de uma ' +
-        'API REST estruturada e um modelo de dados relacional. Foco em type safety, validação de schema ' +
-        'e práticas modernas de frontend.',
-    },
-    tags: ['Next.js', 'TypeScript', 'Laravel', 'MySQL', 'React Query', 'Zod'],
-  },
-  {
-    name: {
       en: 'Micro Wallet — Async Transactions',
       pt: 'Micro Wallet — Transações Assíncronas',
     },
@@ -308,6 +303,39 @@ export const projects: Project[] = [
         'suíte de testes PHPUnit e RabbitMQ na stack.',
     },
     tags: ['PHP', 'Lumen', 'RabbitMQ', 'MySQL', 'PHPUnit'],
+  },
+  {
+    name: {en: 'CSV Operator Distribution', pt: 'CSV Operator Distribution'},
+    period: '2024',
+    description: {
+      en:
+        'A fullstack technical challenge: bulk-register clients from a CSV upload and distribute them ' +
+        'across operators, with CSV import/export. A NestJS API with unit tests per layer (services, ' +
+        'controllers, validators) behind a Next.js frontend — TypeScript end to end.',
+      pt:
+        'Um desafio técnico fullstack: cadastro em massa de clientes a partir de um CSV, distribuídos ' +
+        'entre operadores, com import/export de CSV. Uma API NestJS com testes unitários por camada ' +
+        '(services, controllers, validators) e um frontend Next.js — TypeScript de ponta a ponta.',
+    },
+    tags: ['NestJS', 'Prisma', 'Next.js', 'TypeScript', 'Jest', 'Docker'],
+  },
+  {
+    name: {
+      en: 'Clients & Cards Manager',
+      pt: 'Gerenciador de Clientes e Cartões',
+    },
+    period: '2024',
+    description: {
+      en:
+        'A fullstack technical challenge to manage clients and their credit cards through a structured ' +
+        'REST API and a relational data model. Focused on type safety, schema validation, and modern ' +
+        'frontend practices.',
+      pt:
+        'Um desafio técnico fullstack para gerenciar clientes e seus cartões de crédito por meio de uma ' +
+        'API REST estruturada e um modelo de dados relacional. Foco em type safety, validação de schema ' +
+        'e práticas modernas de frontend.',
+    },
+    tags: ['Next.js', 'TypeScript', 'Laravel', 'MySQL', 'React Query', 'Zod'],
   },
 ];
 

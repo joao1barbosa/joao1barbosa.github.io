@@ -14,7 +14,9 @@ export default function ProjectCard({project}: Props): ReactNode {
     <div className={styles.card}>
       <div className={styles.top}>
         <span className={styles.name}>{name[locale]}</span>
-        <span className={styles.period}>{period}</span>
+        <span className={styles.period}>
+          {typeof period === 'string' ? period : period[locale]}
+        </span>
       </div>
       <p className={styles.desc}>{description[locale]}</p>
       <div className={styles.tags}>
