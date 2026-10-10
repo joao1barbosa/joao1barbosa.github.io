@@ -73,7 +73,7 @@ export const profile = {
 } as const;
 
 /** Pills estáticas do Hero (a de disponibilidade é controlada por config). */
-export const pills: string[] = ['Next.js · Supabase · React Native'];
+export const pills: string[] = ['TypeScript · React · Supabase'];
 
 /* ── UI STRINGS (rótulos da interface) ─────────────────────────── */
 export const ui = {
