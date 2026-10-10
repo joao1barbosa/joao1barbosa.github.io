@@ -63,7 +63,8 @@ export const profile = {
   } satisfies L,
   avatar: 'https://github.com/joao1barbosa.png',
   email: 'joao1barbosa@hotmail.com',
-  company: {name: 'Payevo', href: 'https://payevo.io/'},
+  /** Empresa atual. `href` vazio → o nome aparece sem link. */
+  company: {name: 'Assaad Educação', href: ''},
   socials: {
     github: 'https://github.com/joao1barbosa',
     linkedin: 'https://www.linkedin.com/in/joao1barbosa/',
@@ -101,25 +102,51 @@ export const ui = {
 
 export const workExperience: WorkExperience[] = [
   {
+    company: 'Assaad Educação',
+    role: {en: 'Software Engineer', pt: 'Engenheiro de Software'},
+    period: 'Aug 2026 — Now',
+    logo: '/img/work/assaad.webp',
+    monogram: 'AE',
+    description: {
+      en:
+        "Software Engineer on the company's internal applications (TypeScript, React, Supabase). I am " +
+        'designing and building a referral platform from scratch — Redis-backed click tracking, ' +
+        'idempotent queued webhooks from the checkout and the lead funnel, rankings and automated fraud ' +
+        'checks — while supporting other internal apps, from urgent fixes to their backlog. AI code ' +
+        'agents are a first-class part of how I work: I built a shared, test-first agent workflow ' +
+        'across the repositories, with human approval checkpoints and security guardrails, so ' +
+        'AI-generated code clears the same quality bar as hand-written code.',
+      pt:
+        'Engenheiro de Software nos aplicativos internos da empresa (TypeScript, React, Supabase). ' +
+        'Projeto e construo do zero uma plataforma de indicações — contagem de cliques com Redis, ' +
+        'webhooks idempotentes em fila vindos do checkout e do funil de leads, rankings e checagens ' +
+        'automáticas de fraude — enquanto dou suporte a outros apps internos, das urgências ao backlog. ' +
+        'Agentes de código são parte central do meu trabalho: montei um fluxo de agentes compartilhado ' +
+        'entre os repositórios, com testes antes do código, pontos de aprovação humana e travas de ' +
+        'segurança, para que o código gerado com IA passe pela mesma barra de qualidade do código ' +
+        'escrito à mão.',
+    },
+  },
+  {
     company: 'Payevo',
     role: {en: 'Software Engineer', pt: 'Engenheiro de Software'},
-    period: 'Dec 2025 — Now',
+    period: 'Dec 2025 — Jul 2026',
     logo: '/img/work/payevo.webp',
     monogram: 'P',
     description: {
       en:
         'Full Stack Software Engineer at a payment gateway transitioning into a fintech (Next.js, ' +
-        'Supabase, TypeScript). I own the design and delivery of my tasks — critical refactoring of ' +
+        'Supabase, TypeScript). I owned the design and delivery of my tasks — critical refactoring of ' +
         'legacy modules, complex integrations with acquirers and checkouts, and auditing tools for ' +
-        'transaction monitoring. I use AI code agents actively in implementation and refactoring, as a ' +
-        'first layer of technical review, while the architectural decisions stay mine.',
+        'transaction monitoring. I used AI code agents actively in implementation and refactoring, as a ' +
+        'first layer of technical review, while the architectural decisions stayed mine.',
       pt:
         'Engenheiro de Software Full Stack em um gateway de pagamentos evoluindo para uma fintech ' +
-        '(Next.js, Supabase, TypeScript). Conduzo o design e a entrega das minhas tasks — refatorações ' +
+        '(Next.js, Supabase, TypeScript). Conduzi o design e a entrega das minhas tasks — refatorações ' +
         'críticas de módulos legados, integrações complexas com adquirentes e checkouts, e ferramentas ' +
-        'de auditoria para monitoramento de transações. Uso agentes de código (IA) ativamente na ' +
+        'de auditoria para monitoramento de transações. Usei agentes de código (IA) ativamente na ' +
         'implementação e refatoração, como primeira camada de revisão técnica — mas as decisões de ' +
-        'arquitetura seguem minhas.',
+        'arquitetura eram minhas.',
     },
   },
   {

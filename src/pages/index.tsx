@@ -43,20 +43,27 @@ function Work(): ReactNode {
 
 function About(): ReactNode {
   const {locale} = useLocale();
+  const company = profile.company.href ? (
+    <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
+      <strong>{profile.company.name}</strong>
+    </a>
+  ) : (
+    <strong>{profile.company.name}</strong>
+  );
   return (
     <Section index="01" title={ui.sections.about[locale]} id="about">
       <p className={styles.about}>
         {locale === 'pt' ? (
           <>
-            Sou Engenheiro de Software FullStack na{' '}
-            <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
-              <strong>{profile.company.name}</strong>
-            </a>
-            , um gateway de pagamentos evoluindo para uma fintech, onde refatoro
-            sistemas críticos e entrego features de pagamento com{' '}
-            <strong>Next.js</strong> e <strong>Supabase</strong> — usando IA como
-            alavanca de engenharia, com as decisões de arquitetura sempre sob meu
-            controle. Minha trajetória une desenvolvimento e infraestrutura: uma{' '}
+            Sou Engenheiro de Software na {company}, onde construo os aplicativos
+            internos da empresa com <strong>TypeScript</strong>,{' '}
+            <strong>React</strong> e <strong>Supabase</strong> — incluindo uma
+            plataforma de indicações projetada do zero — e mantenho um fluxo de
+            agentes de IA compartilhado entre os repositórios, com testes antes do
+            código e as decisões de arquitetura sempre sob meu controle. Antes,
+            trabalhei num <a href="#work">gateway de pagamentos evoluindo para uma
+            fintech</a>, com integrações de pagamento, refatoração de legado e
+            reforço da autenticação. Minha trajetória une desenvolvimento e infraestrutura: uma{' '}
             <a href="#work">residência de alto impacto na BRISA &amp; UFG</a>{' '}
             (backend para a área de saúde) e uma{' '}
             <a href="#work">base sólida em infraestrutura de TI</a>, que hoje
@@ -66,14 +73,14 @@ function About(): ReactNode {
           </>
         ) : (
           <>
-            I'm a FullStack Software Engineer at{' '}
-            <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
-              <strong>{profile.company.name}</strong>
-            </a>
-            , a payment gateway evolving into a fintech, where I refactor critical
-            systems and ship payment features with <strong>Next.js</strong> and{' '}
-            <strong>Supabase</strong> — using AI as an engineering lever, with the
-            architectural decisions always mine. My path bridges development and
+            I'm a Software Engineer at {company}, where I build the company's
+            internal applications with <strong>TypeScript</strong>,{' '}
+            <strong>React</strong> and <strong>Supabase</strong> — including a
+            referral platform designed from scratch — and run a shared, test-first
+            AI-agent workflow across the repositories, with the architectural
+            decisions always mine. Before that, I worked at a{' '}
+            <a href="#work">payment gateway evolving into a fintech</a>: payment
+            integrations, legacy refactoring and auth hardening. My path bridges development and
             infrastructure: a high-impact{' '}
             <a href="#work">residency at BRISA &amp; UFG</a> (backend for healthcare)
             and a <a href="#work">solid foundation in IT infrastructure</a>, which I
