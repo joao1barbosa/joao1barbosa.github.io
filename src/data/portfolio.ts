@@ -188,7 +188,7 @@ export const workExperience: WorkExperience[] = [
       en: 'Computer Maintenance Technician',
       pt: 'Técnico em Manutenção de Computadores',
     },
-    period: 'Aug 2020 — Feb 2021',
+    period: 'Aug 2020 — Jul 2021',
     logo: '/img/work/unitech.webp',
     monogram: 'U',
     description: {
