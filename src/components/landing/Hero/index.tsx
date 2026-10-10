@@ -9,26 +9,28 @@ import styles from './styles.module.css';
 export default function Hero(): ReactNode {
   const {locale} = useLocale();
 
+  const company = profile.company.href ? (
+    <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
+      <strong>{profile.company.name}</strong>
+    </a>
+  ) : (
+    <strong>{profile.company.name}</strong>
+  );
+
   const bio =
     locale === 'pt' ? (
       <>
-        Construindo coisas que escalam. Atualmente refatorando sistemas críticos
-        e entregando features de pagamento na{' '}
-        <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
-          <strong>{profile.company.name}</strong>
-        </a>
-        . Dá uma olhada no meu <Link to="/blog">blog</Link> pra ver no que estou
-        pensando.
+        Construindo coisas que escalam. Atualmente construo aplicativos internos
+        e uma plataforma de indicações do zero na {company}, com agentes de IA
+        como parte central do fluxo. Dá uma olhada no meu{' '}
+        <Link to="/blog">blog</Link> pra ver no que estou pensando.
       </>
     ) : (
       <>
-        Building things that scale. Currently refactoring critical systems and
-        shipping payment features at{' '}
-        <a href={profile.company.href} target="_blank" rel="noopener noreferrer">
-          <strong>{profile.company.name}</strong>
-        </a>
-        . Check out my <Link to="/blog">blog</Link> to see what I'm thinking
-        about.
+        Building things that scale. Currently building internal applications and
+        a referral platform from scratch at {company}, with AI code agents as a
+        first-class part of the workflow. Check out my{' '}
+        <Link to="/blog">blog</Link> to see what I'm thinking about.
       </>
     );
 
