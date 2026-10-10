@@ -64,7 +64,7 @@ export const profile = {
   avatar: 'https://github.com/joao1barbosa.png',
   email: 'joao1barbosa@hotmail.com',
   /** Empresa atual. `href` vazio → o nome aparece sem link. */
-  company: {name: 'Assaad Educação', href: ''},
+  company: {name: 'Assaad Educação', href: 'https://app.plataformaassaad.com.br/'},
   socials: {
     github: 'https://github.com/joao1barbosa',
     linkedin: 'https://www.linkedin.com/in/joao1barbosa/',
